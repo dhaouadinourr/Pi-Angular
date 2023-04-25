@@ -58,25 +58,21 @@ Coded by www.creative-tim.com
                         Name
                       </th>
                       
-                      <th>
-                        Update
-                      </th>
+                     
                       <th>
                         Delete
                       </th>
 
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let list of listCategory">
                       <tr >
                         <td>
-                          list.name
+                          {{list.nomCateg}}
                         </td>
                         
+                       
                         <td>
-                            <button type="button" routerLink="/updateCategory"  class="btn btn-outline-warning">Update</button>
-                        </td>
-                        <td>
-                            <button type="button" routerLink="/deleteCategory"  class="btn btn-outline-danger">Remove</button>
+                            <button type="button" routerLink="/deleteCategory" (click)="remove(list.id_categ)" class="btn btn-outline-danger">Remove</button>
                         </td>
                       </tr>
                     </tbody>

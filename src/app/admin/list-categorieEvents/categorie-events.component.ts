@@ -24,5 +24,8 @@ export class CategorieEventsComponent implements OnInit {
       this.listCategory=data;
     })
 }
+remove(id: number):void {
+  this.categoryService. deleteCategEvent(id).subscribe(()=>  (this.listCategory=this.listCategory.filter((t)=>t.id_categ !==id)));
+}
 
 }

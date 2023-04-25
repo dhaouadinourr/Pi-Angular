@@ -9,16 +9,26 @@ import {
 } from '@angular/common/http';
 import { Event } from '../Models/event';
 
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
+
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class EventService {
   baseUrl = 'http://localhost:9090/event';
   event: Event = new Event();
 
-  
+
   public dataForm!: FormGroup;
+
   constructor(private httpClient: HttpClient) {}
+
 
   getEventList(): Observable<Event[]> {
     return this.httpClient.get<Event[]>(this.baseUrl + '/getAll');
@@ -32,19 +42,24 @@ export class EventService {
   }
 
   updateEvent(formData: FormData): Observable<any> {
-    return this.httpClient.post(this.baseUrl + '/update', formData);
+    return this.httpClient.put(this.baseUrl + '/update', formData);
   }
   deleteEvent(event: Event): Observable<Event> {
     const url = `${this.baseUrl}/delete/${event.id_event}`;
     return this.httpClient.delete<Event>(url);
   }
+
   post_options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
   };
+
+  getImagesByEvent(id: number): Observable<any[]> {
+    return this.httpClient.get<any[]>(this.baseUrl + '/images/' + id);
+  }
   getEventByCategory(id: number): Observable<Event[]> {
-    return this.httpClient.get<Event[]>(this.baseUrl + '/categ/' + id);
+    return this.httpClient.get<Event[]>(this.baseUrl + '/getEvent/' + id);
   }
 }

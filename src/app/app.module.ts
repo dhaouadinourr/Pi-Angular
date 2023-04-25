@@ -11,9 +11,10 @@ import { CategorieEventsComponent } from './admin/list-categorieEvents/categorie
 import { AddCategorieComponent } from './admin/add-categorieEvent/add-categorie.component';
 import { AddEventComponent } from './admin/add-event/add-event.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListEventComponent } from './admin/list-event/list-event.component';
 import { EditeEventComponent } from './admin/edite-event/edite-event.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,8 @@ import { EditeEventComponent } from './admin/edite-event/edite-event.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgxPaginationModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

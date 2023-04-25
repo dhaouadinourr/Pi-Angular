@@ -35,8 +35,8 @@ export class CategeventService {
     updateCategEvent(category: CategorieEvent): Observable<any> {
       return this.httpClient.post(this.baseUrl + '/update', category);
     }
-    deleteCategEvent(categevent: CategorieEvent): Observable<Event> {
-      const url = `${this.baseUrl}/delete/${categevent.id_categ}`;
-      return this.httpClient.delete<Event>(url);
+    
+    deleteCategEvent(id: number): Observable<any> {
+  return this.httpClient.delete(this.baseUrl + '/delete/' + id);
 }
 }

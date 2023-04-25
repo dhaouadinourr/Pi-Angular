@@ -8,10 +8,9 @@ import { DashbordComponent } from './admin/dashbord/dashbord.component';
 
 const routes: Routes = [ {path: 'addCategory', component: AddCategorieComponent},
 {path: 'listCategory', component: CategorieEventsComponent},
-
-
-{path: 'add', component: AddEventComponent},
-   { path: 'listProduct', component: ListEventComponent },
+{path:'',component: DashbordComponent},
+{path: 'addEvent', component: AddEventComponent},
+   { path: 'listEvent', component: ListEventComponent },
    {path: 'admin', component: DashbordComponent},
   ];
   

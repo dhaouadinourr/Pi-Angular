@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from 'src/app/Models/event';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-list-event',
@@ -10,9 +12,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListEventComponent implements OnInit {
 
-  constructor() { }
+  eventList: Array<Event> = [];
 
+
+  p: number=1;
+  constructor(public eventService: EventService) {}
   ngOnInit(): void {
+    this.getProducts()
+    console.log(this.eventList)
+    
   }
-
-}
+  getProducts(): void {
+    this.eventService.getEventList().subscribe((data:Event[]) => {
+      this.eventList = data;
+    });
+  }
+  
+  onDelete(event: Event) {
+    this.eventService
+      .deleteEvent(event)
+      .subscribe(
+        () =>
+          (this.eventList = this.eventList.filter(
+            (t) => t.id_event !== event.id_event
+          ))
+      );
+  }
+  }
