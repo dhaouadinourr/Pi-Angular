@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListEventComponent } from './admin/list-event/list-event.component';
 import { EditeEventComponent } from './admin/edite-event/edite-event.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HeaderComponent } from './front/header/header.component';
+import { EventsComponent } from './front/events/events.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddEventComponent,
     ListEventComponent,
     EditeEventComponent,
+    HeaderComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,
