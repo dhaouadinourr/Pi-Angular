@@ -17,6 +17,16 @@ import { EditeEventComponent } from './admin/edite-event/edite-event.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HeaderComponent } from './front/header/header.component';
 import { EventsComponent } from './front/events/events.component';
+import { ListUserComponent } from './admin/list-user/list-user.component';
+import { EditUserComponent } from './admin/list-user/edit-user/edit-user.component';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+import { LoginComponent } from './admin/login/login.component';
+import { UsersComponent } from './admin/users/users.component';
+import { SignupComponent } from './admin/signup/signup.component';
+import { ForgetPasswordComponent } from './admin/login/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './admin/login/reset-password/reset-password.component';
+import { LoginFComponent } from './vitrine/login-f/login-f.component';
+import { SignupFComponent } from './vitrine/signup-f/signup-f.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +42,16 @@ import { EventsComponent } from './front/events/events.component';
     EditeEventComponent,
     HeaderComponent,
     EventsComponent,
+    ListUserComponent,
+    EditUserComponent,
+    AdminLayoutComponent,
+    LoginComponent,
+    UsersComponent,
+    SignupComponent,
+    ForgetPasswordComponent,
+    ResetPasswordComponent,
+    LoginFComponent,
+    SignupFComponent
   ],
   imports: [
     BrowserModule,

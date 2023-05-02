@@ -8,6 +8,16 @@ import { DashbordComponent } from './admin/dashbord/dashbord.component';
 import { EditeEventComponent } from './admin/edite-event/edite-event.component';
 import { EventsComponent } from './front/events/events.component';
 import { HeaderComponent } from './front/header/header.component';
+import { ListUserComponent } from './admin/list-user/list-user.component';
+import { EditUserComponent } from './admin/list-user/edit-user/edit-user.component';
+import { AuthGuard } from './_guard/auth.guard';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+import { LoginComponent } from './admin/login/login.component';
+import { SignupComponent } from './admin/signup/signup.component';
+import { ForgetPasswordComponent } from './admin/login/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './admin/login/reset-password/reset-password.component';
+import { LoginFComponent } from './vitrine/login-f/login-f.component';
+import { SignupFComponent } from './vitrine/signup-f/signup-f.component';
 
 const routes: Routes = [ 
   {path : '', component:HeaderComponent},
@@ -19,8 +29,23 @@ const routes: Routes = [
 {path:'admin',component: DashbordComponent},
 {path: 'addEvent', component: AddEventComponent},
    { path: 'listEvent', component: ListEventComponent },
-   {path: 'admin', component: DashbordComponent},
    { path: 'updateEvent/:id', component: EditeEventComponent},
+   {path: 'admin/login', component: LoginComponent},
+   {path: 'admin/signup', component: SignupComponent},
+   {path: 'admin/forgotpassword' , component:ForgetPasswordComponent},
+   {path: 'admin/resetpassword' , component:ResetPasswordComponent},
+   {path: 'login', component: LoginFComponent},
+   {path: 'signup', component: SignupFComponent},
+   {path:'admin/users',component:AdminLayoutComponent , canActivate: [AuthGuard] ,children:[
+    {
+      path:'',
+      component:ListUserComponent
+    },
+    {
+      path: 'edit/:id',
+      component: EditUserComponent
+    }
+   ]},
   ];
   
   @NgModule({
