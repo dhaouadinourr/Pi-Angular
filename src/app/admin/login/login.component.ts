@@ -37,17 +37,16 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('adminToken',this.data)
       localStorage.setItem('role',this.role)     
       localStorage.setItem('username',this.username) 
+
+      if(this.role == 'ROLE_ADMIN'){
+        this.router.navigate(['/admin/users']);
+      }else{
+        this.router.navigate(['/login']);
+      }
     })
-    this.redirection();    
+    //this.redirection();    
   }
 
-  redirection(){
-    let role = localStorage.getItem('role')
-    if(role == 'ROLE_ADMIN'){
-      this.router.navigate(['/admin/dashbord']);
-    }else
-  this.router.navigate(['/']);
-    console.log(role)
-  }
+  
 
 }

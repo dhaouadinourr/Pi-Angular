@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/Models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
-
 
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.css']
+  styleUrls: ['./edit-user.component.css',
+  '../../../../assets/back/css/bootstrap.min.css',
+  
+  '../../../../assets/back/demo/demo.css',
+  '../../../../assets/back/css/paper-dashboard.css']
 })
 export class EditUserComponent implements OnInit {
 
@@ -26,7 +30,7 @@ export class EditUserComponent implements OnInit {
     })
   }
 
-  editUser(){
+  editUser(){ 
     this._authService.editUser(this.user).subscribe({
       next :()=> this._router.navigateByUrl('/admin/users')
   })

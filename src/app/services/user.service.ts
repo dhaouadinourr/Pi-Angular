@@ -26,14 +26,26 @@ export class UserService {
   }
 
   deleteUser(id:any) : Observable<HttpResponse<any>>{
-    return this.http.delete(`${this.url}/api/auth/deleteuser/${id}`,{ observe: 'response' });
+    console.log(localStorage.getItem('adminToken'))
+    const token =localStorage.getItem('adminToken');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete(`${this.url}/api/auth/deleteuser/${id}`,{ headers,observe: 'response' });
   }
 
-  getUserById(id:any) : Observable<HttpResponse<any>>{
+  getUserById(id:any) : Observable<HttpResponse<any>>{  
     return this.http.get(`${this.url}/api/auth/getUserById/${id}`,{ observe: 'response' });
   }
 
   editUser(formData:any): Observable<HttpResponse<any>>{
     return this.http.put(`${this.url}/api/auth/edit`,formData,{ observe: 'response' });
+  }
+  resetPassword(tokenn: string, passwordd: string) {
+    let requestBody = {
+      "token": tokenn,
+      "password": passwordd
+    };
+    return this.http.post(`${this.url}/api/auth/resetPassword`, requestBody);
   }
 }

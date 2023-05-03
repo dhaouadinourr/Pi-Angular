@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -19,25 +20,24 @@ export class ResetPasswordComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router:Router,
     private http: HttpClient,
-    private _authService:AuthService
+    private _authService:AuthService,private serviceuser:UserService
     ) { }
 
   ngOnInit(): void {
     this.token = this.route.snapshot.queryParamMap.get('token');
+    console.log(this.token)
   }
 
-  resetPassword(password:any){
-    this.http.post('http://localhost:8082/api/auth/resetPassword', { password, token: this.token }).subscribe(
-      response => {
-        console.log(response);
-        // handle success
-      },
-      error => {
-        console.log(error);
-        // handle error
-      }
-    )
+  onSubmit() {
+  
   }
-
+  resetPassword(password:string){
+     console.log(this.token,password)
+    this.serviceuser.resetPassword(this.token,password).subscribe({
+      next :() => this.router.navigateByUrl('/admin/login')
+    })
+  }
+ 
 }
