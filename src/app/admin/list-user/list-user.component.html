@@ -64,7 +64,7 @@
                           </td>
                           <td>
                             <button class="btn btn-primary btn-round" [routerLink]="['/admin/users/edit',list.id]">Edit</button>
-                            <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#exampleModal" (click)="idUsTodelete = list.id">Delete</button>
+                            <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#exampleModal" (click)="deleteUser(list.id)">Delete</button>
                           </td>                                           
                       </tr>
                     </tbody>
@@ -93,7 +93,7 @@
                       <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                   </div>           
                   <div class="modal-body text-center">
-                      <button class="btn btn-danger btn-round mr-2" (click)="deleteUser(idUsTodelete)">Yes</button>
+                      <button class="btn btn-danger btn-round mr-2" data-dismiss="modal" aria-label="Close" (click)="deleteUser(idUsTodelete)">Yes</button>
                       <button class="btn btn-primary btn-round ml-2" data-dismiss="modal" aria-label="Close">No</button>
                   </div>
               </div>

@@ -5,7 +5,11 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
-  styleUrls: ['./list-user.component.css']
+  styleUrls: ['./list-user.component.css',
+  '../../../assets/back/css/bootstrap.min.css',
+  
+  '../../../assets/back/demo/demo.css',
+  '../../../assets/back/css/paper-dashboard.css']
 })
 export class ListUserComponent implements OnInit {
   
@@ -28,9 +32,8 @@ export class ListUserComponent implements OnInit {
   }
 
   deleteUser(id:any){
-    this.serviceuser.deleteUser(id).subscribe((data:any)=>{
-      this.refresh();
-      console.log(data)
+    this.serviceuser.deleteUser(id).subscribe({
+      next:()=>this.userList=this.userList.filter((p)=> p.id!=id),
     })
   }
 

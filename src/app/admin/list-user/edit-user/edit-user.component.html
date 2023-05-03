@@ -27,18 +27,7 @@
                         </div>
                         </div>
                     </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" placeholder="Username" id="username" name="username" #username="ngModel" [(ngModel)]="user.username" required minlength="3">                       
-                            <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
-                                <div *ngIf="username.errors?.['required']">Username is required</div>                              
-                            </div>
-                            </div>
-                        </div>
-                    </div>         
+                    </div>                             
                     <div class="row">                    
                     <div class="col-md-12">
                         <div class="form-group">
@@ -61,28 +50,7 @@
                             </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" placeholder="User@yahoo.fr" id="email" name="email" #email="ngModel" [(ngModel)]="user.email" required minlength="3">                       
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" placeholder="********" id="password" name="password"   #pass="ngModel" [(ngModel)]="user.password" required minlength="4" maxlength="16">  
-                            <div class="alert alert-danger" *ngIf="pass.touched && pass.invalid">
-                                <div *ngIf="pass.errors?.['required']">Password is required</div>                                
-                               <div *ngIf="pass.errors?.['minLength']">Password must have at least 4 characters</div>                              
-                               <div *ngIf="pass.errors?.['maxLength']">Password must not depass 16 characters</div>                             
-                            </div>                       
-                            </div>
-                        </div>
-                    </div>           
+                    </div>                    
                     <div class="row">
                     <div class="update ml-auto mr-auto">
                         <button type="submit" class="btn btn-primary btn-round" (click)="editUser()">Confirm</button>
