@@ -8,6 +8,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Event } from '../Models/event';
+import { User } from '../Models/user';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -22,8 +23,9 @@ const httpOptions = {
 
 export class EventService {
   baseUrl = 'http://localhost:9090/event';
+  test = 'http://localhost:9090'
   event: Event = new Event();
-
+  
 
   public dataForm!: FormGroup;
 
@@ -62,4 +64,10 @@ export class EventService {
   getEventByCategory(id: number): Observable<Event[]> {
     return this.httpClient.get<Event[]>(this.baseUrl + '/getEvent/' + id);
   }
+  participant(eventId: number,userId:number): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl +`/addusers/${eventId}/${userId}`,null);
+  }
+
+  
+
 }

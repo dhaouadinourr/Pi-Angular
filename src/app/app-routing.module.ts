@@ -8,6 +8,13 @@ import { DashbordComponent } from './admin/dashbord/dashbord.component';
 import { EditeEventComponent } from './admin/edite-event/edite-event.component';
 import { EventsComponent } from './front/events/events.component';
 import { HeaderComponent } from './front/header/header.component';
+import { ListproductComponent } from './admin/listproduct/listproduct.component';
+import { AddproductComponent } from './admin/addproduct/addproduct.component';
+import { ListcategoryComponent } from './admin/listcategory/listcategory.component';
+import { CategoryproductComponent } from './admin/categoryproduct/categoryproduct.component';
+import { UpdateProductComponent } from './admin/update-product/update-product.component';
+import { EventbycategComponent } from './front/eventbycateg/eventbycateg.component';
+import { SingleventComponent } from './front/singlevent/singlevent.component';
 
 const routes: Routes = [ 
   {path : '', component:HeaderComponent},
@@ -21,11 +28,19 @@ const routes: Routes = [
    { path: 'listEvent', component: ListEventComponent },
    {path: 'admin', component: DashbordComponent},
    { path: 'updateEvent/:id', component: EditeEventComponent},
+   { path: 'updateProduct/:id', component: UpdateProductComponent },
+{path: 'addProductCategory', component: CategoryproductComponent},
+{path: 'listCategoryProduct', component: ListcategoryComponent},
+    {path: 'product/add', component: AddproductComponent},
+{ path: 'listProduct', component: ListproductComponent },
+{path: 'event/:id',component:EventbycategComponent},
+{path: 'eventdetails/:id',component:SingleventComponent}
   ];
   
   @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
+
   })
   
 export class AppRoutingModule { }

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Humanity</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../../../assets/front/css/bootstrap.min.css">
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link href="../../../assets/front/css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../assets/front/css/demo.css" />
+        <link rel="stylesheet" href="../../../assets/front/css/testimonial.css" />
+        <link rel="stylesheet" href="../../../assets/front/css/font-awesome.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+    
+        <app-header></app-header>
+
+
+    <!--====== PAGE BANNER PART ENDS ======-->
+
+    <!--====== SHOP PART START ======-->
+   
+    <section id="shop-singel" class="pt-120 pb-120 ">
+      <div class="container">
+        <div class="shop-destails">
+          <div class="row">
+            <div class="col-lg-6">
+          
+                    <div >
+                      <a href="../../../../assets/front/images/shop-singel/ss-1.jpg" class="item active" 
+                        ><img src="{{this.eventService.baseUrl+'/Imgarticle/'+event?.id_event}}"  alt="Shop"
+                      /></a>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="pills-image-2"
+                    role="tabpanel"
+                    aria-labelledby="pills-image-2-tab"
+                  >
+                    <div class="shop-image">
+                      <a href="../../../../assets/front/images/shop-singel/ss-2.jpg" class="shop-items"
+                        ><img src="../../../../assets/front/images/shop-singel/ss-2.jpg" alt="Shop"
+                      /></a>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="pills-image-3"
+                    role="tabpanel"
+                    aria-labelledby="pills-image-3-tab"
+                  >
+                    <div class="shop-image">
+                      <a href="../../../../assets/front/images/shop-singel/ss-3.jpg" class="shop-items"
+                        ><img src="../../../../assets/front/images/shop-singel/ss-3.jpg" alt="Shop"
+                      /></a>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="pills-image-4"
+                    role="tabpanel"
+                    aria-labelledby="pills-image-4-tab"
+                  >
+                    <div class="shop-image">
+                      <a href="../../../../assets/front/images/shop-singel/ss-1.jpg" class="shop-items"
+                        ><img src="../../../../assets/front/images/shop-singel/ss-1.jpg" alt="Shop"
+                      /></a>
+                    </div>
+                  </div>
+                </div>
+                <ul
+                  class="nav nav-justified mt-30"
+                  id="pills-tab"
+                  role="tablist"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="active"
+                      id="pills-image-1-tab"
+                      data-toggle="pill"
+                      href="#pills-image-1"
+                      role="tab"
+                      aria-controls="pills-image-1"
+                      aria-selected="true"
+                    >
+                      <span class="shop-thum">
+                        <img src="../../../../assets/front/images/shop-singel/ss-s1.jpg" alt="Thum" />
+                      </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      id="pills-image-2-tab"
+                      data-toggle="pill"
+                      href="#pills-image-2"
+                      role="tab"
+                      aria-controls="pills-image-2"
+                      aria-selected="false"
+                    >
+                      <span class="shop-thum">
+                        <img src="../../../../assets/front/images/shop-singel/ss-s2.jpg" alt="Thum" />
+                      </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      id="pills-image-3-tab"
+                      data-toggle="pill"
+                      href="#pills-image-3"
+                      role="tab"
+                      aria-controls="pills-image-1"
+                      aria-selected="false"
+                    >
+                      <span class="shop-thum">
+                        <img src="../../../../assets/front/images/shop-singel/ss-s3.jpg" alt="Thum" />
+                      </span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      id="pills-image-4-tab"
+                      data-toggle="pill"
+                      href="#pills-image-4"
+                      role="tab"
+                      aria-controls="pills-image-4"
+                      aria-selected="false"
+                    >
+                      <span class="shop-thum">
+                        <img src="../../../../assets/front/images/shop-singel/ss-s1.jpg" alt="Thum" />
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- shop left -->
+            </div>
+            <div class="col-lg-6">
+              <div class="shop-right pt-30">
+                <h6>{{ event.nomEvent }}</h6>
+               
+                <p>{{ event.details }}</p>
+               
+                <div class="add-btn pt-15">
+                 
+                  <button  type="button" class="main-btn" (click)="particip(event.id_event,iduser)">
+                    Participer 
+                  </button>
+                </div>
+              </div>
+            </div>
+          <!-- row -->
+        <app-review  ></app-review>
+          <!-- row -->
+        <!-- shop-destails -->
+        
+        <!-- Related Events -->
+
+        <!-- releted item -->
+      <!-- container -->
+    </section>
+
+    <!-- ============FOOTER============= -->
+<footer id="footer"> 
+    <div class="footer-content container">
+        <div class="footer-adress text-center col-xs-12 col-sm-4 col-md-4">
+            <h4>Great love for humanity</h4>
+            <ul class="footer-menus">
+              <li>Home /</li>
+              <li>About </li><br />
+              <li>Service /</li>
+              <li>Gallery /</li>
+              <li>Contact</li>
+            </ul>
+        </div>
+        <div class="footer-second col-xs-12 col-sm-4 col-md-4">
+          <div class="social-block text-center">
+            <div class="social-share">
+              <i class="fa fa-2x fa-facebook"></i>
+              <i class="fa fa-2x  fa-twitter"></i>
+              <i class="fa fa-2x  fa-google-plus"></i>
+              <i class="fa fa-2x  fa-instagram"></i>
+            </div>
+          </div>
+           <p class="text-center footer-text1">123 456 7890</p>
+            <p class="text-center footer-text">humanity@shuvohabib.com</p></div>
+        <div class="footer-third col-xs-12 col-sm-4 col-md-4">
+          <div class="copyright">
+              <span>Copyright 2014 Theme</span><br>
+              <span>All Rights Reserved</span>
+          </div>
+        </div>
+    </div>
+    <div class="move-top-page">
+  </div>
+</footer>
+
+<!-- script references -->
+<script src="../../../assets/front/js/jquery.min.js"></script>
+<script src="../../../assets/front/js/bootstrap.min.js"></script>
+<script src="../../../assets/front/js/nav-hover.min.js"></script>
+<script type="text/javascript" src="../../../assets/front/js/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="../../../assets/front/js/main.js"></script>
+<!-- Place in the <head>, after the three links -->
+<script>
+ $('.testimonials-slider').bxSlider({
+  slideWidth: 800,
+  minSlides: 1,
+  maxSlides: 1,
+  slideMargin: 32,
+  auto: true,
+  autoControls: true
+  });
+</script>
+<script type="text/javascript">
+</script>
+</body>
+</html>

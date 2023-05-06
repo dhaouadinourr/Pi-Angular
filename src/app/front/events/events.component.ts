@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Event } from 'src/app/Models/event';
+import { EventService } from 'src/app/services/event.service';
 
 @Component({
   selector: 'app-events',
@@ -14,9 +17,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() { }
+  @Input() events: Event[] = [];
+  files: any = [];
+  id!: number;
+  
+  p:number=1;
+
+
+
+  constructor(
+
+    public eventService: EventService,
+  
+    private route: ActivatedRoute,
+    
+  ) {}
 
   ngOnInit(): void {
+
+    this.listProducts();
+    this.eventService.getEventList()
+    .subscribe((data: Event[]) => {
+      this.events = data;
+    });
+  }
+  listProducts() {
+    this.eventService.getEventList().subscribe((data) => {
+      this.events = data;
+      console.log(this.events);
+    });
+    this.getProductImages();
+    
   }
 
+    
+
+  getProductImages() {
+    this.id = this.route.snapshot.params['id'];
+    this.eventService.getImagesByEvent(this.id).subscribe((data) => {
+      this.files = data;
+    });
+  }
+
+ 
 }

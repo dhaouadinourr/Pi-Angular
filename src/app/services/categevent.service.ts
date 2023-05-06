@@ -39,4 +39,5 @@ export class CategeventService {
     deleteCategEvent(id: number): Observable<any> {
   return this.httpClient.delete(this.baseUrl + '/delete/' + id);
 }
+
 }
