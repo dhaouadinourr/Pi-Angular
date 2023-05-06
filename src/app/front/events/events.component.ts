@@ -20,11 +20,12 @@ export class EventsComponent implements OnInit {
   @Input() events: Event[] = [];
   files: any = [];
   id!: number;
-  
+  d!:any
   p:number=1;
 
-
-
+send(value:any){
+  console.log(value)
+}
   constructor(
 
     public eventService: EventService,

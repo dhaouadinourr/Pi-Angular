@@ -27,6 +27,7 @@ import { SingleventComponent } from './front/singlevent/singlevent.component';
 import { ReviewComponent } from './front/singlevent/review/review.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,9 +59,10 @@ import { ReviewComponent } from './front/singlevent/review/review.component';
     HttpClientModule,
     FormsModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

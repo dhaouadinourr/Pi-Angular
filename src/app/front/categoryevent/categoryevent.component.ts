@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output,OnInit, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { CategorieEvent } from 'src/app/Models/categorie-event';
 import { Event } from 'src/app/Models/event';
 import { CategeventService } from 'src/app/services/categevent.service';
@@ -13,11 +14,15 @@ export class CategoryeventComponent implements OnInit {
 
   categories!: CategorieEvent[];
   @Input() events!: Event[];
-
+  ev!:Event[]
+  @Output() rate = new EventEmitter<any>();
+  inp!:any
+  inp2!:any
   constructor(private categoryEventService: CategeventService,public eventservice:EventService) { }
 
   ngOnInit(): void {
     this.categoriesProductList();
+    
   }
   categoriesProductList() {
     this.categoryEventService.getCategEventList().subscribe(data => {
@@ -29,7 +34,16 @@ export class CategoryeventComponent implements OnInit {
       this.events = data
     })
   }
-
+  submit(inp:any,inp2:any){
+    console.log(inp)
+    console.log(inp2)
+    this.rate.emit(inp);
+    this.eventservice.search(inp,inp2).subscribe((e)=>{
+      this.events=e
+      console.log(e)
+    })
+  }
+  
   showEventByCategory(id: number){
 
     this.getEventByCategory(id);

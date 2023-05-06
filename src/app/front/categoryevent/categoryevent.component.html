@@ -1,48 +1,51 @@
 <div class="col-md-4 subscribe-form">
-<div class="card">
+  <div class="card">
     <article class="filter-group">
       <header class="card-header">
-        <a
-          href="#"
-          data-toggle="collapse"
-          data-target="#collapse_1"
-          aria-expanded="true"
-          class=""
-        >
+        <a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
           <i class="icon-control fa fa-chevron-down"></i>
           <h6 class="title">Evenement Categorie</h6>
         </a>
       </header>
-      <div class="filter-content collapse show" id="collapse_1" style="">
+      <div class="filter-content collapse show" id="collapse_1">
         <div class="card-body">
-          <form class="pb-3">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" />
-              <div class="input-group-append">
-                <button class="btn btn-light" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-          <ul  class="list-menu">
+          <ul class="list-menu">
             <li>
-              <a routerLink="/event">
-                All categories
-              </a>
+              <a routerLink="/event">All categories</a>
             </li>
           </ul>
-          <ul  class="list-menu" *ngFor="let categ of categories">
+          <ul class="list-menu" *ngFor="let categ of categories">
             <li>
-                <a routerLink="/event/{{ categ.id_categ }}">
-                  {{ categ.nomCateg }}
-                </a>
-              </li>
+              <a routerLink="/event/{{ categ.id_categ }}">{{ categ.nomCateg }}</a>
+            </li>
           </ul>
         </div>
-        <!-- card-body.// -->
       </div>
     </article>
-  
-    <!-- filter-group .// -->
+   
+    <div class="row">
+      <div class="col">
+        <label for="start-date" class="sr-only">Start Date:</label>
+        <div class="input-group mb-3">
+          <input type="date" id="start-date" name="start-date"  [(ngModel)]="inp" class="form-control date-input">
+          <div class="input-group-append">
+            <span class="input-group-text date-icon"><i class="far fa-calendar-alt"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <label for="end-date" class="sr-only" >End Date:</label>
+        <div class="input-group mb-3">
+          <input type="date" id="end-date" [(ngModel)]="inp2" name="end-date" class="form-control date-input">
+          <div class="input-group-append">
+            <span class="input-group-text date-icon"><i class="far fa-calendar-alt"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary submit-button animated pulse" (click)="submit(inp,inp2)">Submit</button>
+      </div>
+    </div>
+    
   </div>
+</div>

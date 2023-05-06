@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Event } from 'src/app/Models/event';
 import { EventComment } from 'src/app/Models/event-comment';
@@ -29,7 +30,7 @@ export class SingleventComponent implements OnInit {
   user: any = localStorage.getItem('currentUser')
     ? JSON.parse(localStorage.getItem('currentUser') || '{}')
     : null;
-
+   
   constructor( public eventService: EventService,
     private route: ActivatedRoute) { }
 
@@ -52,6 +53,11 @@ export class SingleventComponent implements OnInit {
   }
   particip(eventId:number,userId:number){
     this.eventService.participant(eventId,userId).subscribe((d)=>{
+      console.log(d)
+    })
+  }
+  unparticip(eventId:number,userId:number){
+    this.eventService.unparticipant(eventId,userId).subscribe((d)=>{
       console.log(d)
     })
   }

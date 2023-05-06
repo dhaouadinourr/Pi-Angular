@@ -68,6 +68,13 @@ export class EventService {
     return this.httpClient.post<any>(this.baseUrl +`/addusers/${eventId}/${userId}`,null);
   }
 
+  unparticipant(eventId: number,userId:number): Observable<any> {
+    return this.httpClient.delete<any>(this.baseUrl +`/removeusers/${eventId}/${userId}`);
+  }
+  search(startDate: string,endDate:string): Observable<any> {
+    return this.httpClient.get<any>(this.baseUrl +`/findbydate?startDate=${startDate}&endDate=${endDate}`);
+  }
+
   
 
 }
