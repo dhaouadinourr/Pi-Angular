@@ -1,0 +1,34 @@
+<div class="container" >
+    <div class="edit-Area">
+        <div class="row">
+            <div class="col-md-8">
+            <div class="card card-user">
+                <div class="card-header">
+                <h5 class="card-title">Add Competence</h5>
+                </div>
+                <div class="card-body">
+                <form #f="ngForm" action=""> 
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="cname">Competence Name</label>
+                        <input type="text" class="form-control" placeholder="Competence Name" id="cname" name="cname" #cname="ngModel" [(ngModel)]="competence.cname">
+                            <div class="alert alert-danger" *ngIf="cname.touched && cname.invalid">
+                                <div *ngIf="cname.errors?.['required']">Competence name is required</div>
+                                <div *ngIf="cname.errors?.['minlength']">Competence name must have at least 3 characters</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="update ml-auto mr-auto">
+                        <button type="submit" class="btn btn-primary btn-round" [disabled]="f.invalid" (click)="editCompetence()" >Add Competence</button>
+                    </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

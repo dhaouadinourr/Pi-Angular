@@ -1,0 +1,118 @@
+<div class="container" >
+    <div class="add-Area">
+        <div class="row">
+            <div class="col-md-8">
+            <div class="card card-user">
+                <div class="card-header">
+                <h5 class="card-title">Add Mission</h5>
+                </div>
+                <div class="card-body">
+                <form #f="ngForm" action=""> 
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" placeholder="Title" id="title" name="title" #title="ngModel" [(ngModel)]="mission.title"  required minlength="3">
+                        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">
+                            <div *ngIf="title.errors?.['required']">Title is required</div>
+                            <div *ngIf="title.errors?.['minlength']">Title must have at least 3 characters</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="nbPlaces">Nombre du place</label>
+                        <input type="number" class="form-control" placeholder="0" id="nbPlaces" name="nbPlaces" #nbPlaces="ngModel" [(ngModel)]="mission.nbPlaces"  required>
+                        <div class="alert alert-danger" *ngIf="nbPlaces.touched && nbPlaces.invalid">
+                            <div *ngIf="nbPlaces.errors?.['required']">Nombre du place is required</div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>         
+                    <div class="row">
+                    <div class="col-md-6 pr-1">
+                        <div class="form-group">
+                        <label for="dateDebut">Start Date</label>
+                        <input type="date" class="form-control" placeholder="Start Date" id="dateDebut" name="dateDebut" #dateDebut="ngModel" [(ngModel)]="mission.dateDebut">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pl-1">
+                        <div class="form-group">
+                        <label for="dateFin">End Date</label>
+                        <input type="date" class="form-control" placeholder="dateFin" id="dateFin" name="dateFin"  #dateDebut="ngModel" [(ngModel)]="mission.dateFin">
+                        </div>
+                    </div>
+                    </div>                
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" class="form-control" placeholder="Location" id="location" name="location" #location="ngModel" [(ngModel)]="mission.location"  required minlength="3">
+                        <div class="alert alert-danger" *ngIf="location.touched && location.invalid">
+                            <div *ngIf="location.errors?.['required']">Location is required</div>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description"  class="form-control textarea" #description="ngModel" [(ngModel)]="mission.description"  minlength="3">Describe and sharer your mission </textarea>
+                        <div class="alert alert-danger" *ngIf="description.touched && description.invalid">
+                            <div *ngIf="description.errors?.['required']">Description is required</div>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="update ml-auto mr-auto">
+                        <button type="submit" class="btn btn-primary btn-round" data-toggle="modal" data-target="#cmptModal" [disabled]="f.invalid" (click)="addMission()">Add Mission</button>
+                    </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+                                           
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade" id="cmptModal" tabindex="-1" aria-labelledby="cmptModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col-md-12">
+                <div class="card card-user">
+                    <div class="modal-header text-center">
+                        <h5 class="modal-title" id="exampleModalLabel" #modal>Select Competence</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    </div>           
+                    <div class="modal-body">
+                    <ul class="competence-container" >
+                        <li class="competence" [class.selected]="competence.cname" *ngFor="let competence of competenceList" (click)="selectCompetence(competence)">
+                        {{ competence.cname }}
+                        </li>                        
+                    </ul>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary btn-round" (click)="affectCompetenceToMission()">Affecter</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+<script>
+    var myModal = document.getElementById('myModal')
+    var myInput = document.getElementById('myInput')
+    
+    myModal.addEventListener('shown.bs.modal', function () {
+      myInput.focus()
+    })
+</script>

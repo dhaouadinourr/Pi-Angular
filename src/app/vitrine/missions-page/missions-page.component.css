@@ -1,0 +1,6 @@
+.list-card-content {
+    display: block;
+}
+.modal.open {
+    display: flex;
+}

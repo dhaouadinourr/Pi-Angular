@@ -27,6 +27,15 @@ import { ForgetPasswordComponent } from './admin/login/forget-password/forget-pa
 import { ResetPasswordComponent } from './admin/login/reset-password/reset-password.component';
 import { LoginFComponent } from './vitrine/login-f/login-f.component';
 import { SignupFComponent } from './vitrine/signup-f/signup-f.component';
+import { CompetenceComponent } from './admin/competence/competence.component';
+import { AddCompetenceComponent } from './admin/competence/add-competence/add-competence.component';
+import { EditCompetenceComponent } from './admin/competence/edit-competence/edit-competence.component';
+import { MissionComponent } from './admin/mission/mission.component';
+import { AddMissionComponent } from './admin/mission/add-mission/add-mission.component';
+import { EditMissionComponent } from './admin/mission/edit-mission/edit-mission.component';
+import { DetailsMissionComponent } from './admin/mission/details-mission/details-mission.component';
+import { MissionsPageComponent } from './vitrine/missions-page/missions-page.component';
+import { ParticipateComponent } from './vitrine/missions-page/participate/participate.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +60,16 @@ import { SignupFComponent } from './vitrine/signup-f/signup-f.component';
     ForgetPasswordComponent,
     ResetPasswordComponent,
     LoginFComponent,
-    SignupFComponent
+    SignupFComponent,
+    CompetenceComponent,
+    AddCompetenceComponent,
+    EditCompetenceComponent,
+    MissionComponent,
+    AddMissionComponent,
+    EditMissionComponent,
+    DetailsMissionComponent,
+    MissionsPageComponent,
+    ParticipateComponent
   ],
   imports: [
     BrowserModule,

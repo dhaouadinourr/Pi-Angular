@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="list-table-item-area">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header-table">
+                        <div class="card-header">
+                        <h4 class="card-title" > Competence Requirements For Mission# {{idMission}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Competence Name</th>                                    
+                                </thead>
+                                <tbody *ngFor="let competenceList of comptList">
+                                    <tr>
+                                        <td>{{competenceList.cname}}</td>                
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
