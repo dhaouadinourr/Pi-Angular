@@ -36,6 +36,7 @@ import { EditMissionComponent } from './admin/mission/edit-mission/edit-mission.
 import { DetailsMissionComponent } from './admin/mission/details-mission/details-mission.component';
 import { MissionsPageComponent } from './vitrine/missions-page/missions-page.component';
 import { ParticipateComponent } from './vitrine/missions-page/participate/participate.component';
+import { MissionComptComponent } from './admin/mission/add-mission/mission-compt/mission-compt.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ParticipateComponent } from './vitrine/missions-page/participate/partic
     EditMissionComponent,
     DetailsMissionComponent,
     MissionsPageComponent,
-    ParticipateComponent
+    ParticipateComponent,
+    MissionComptComponent
   ],
   imports: [
     BrowserModule,

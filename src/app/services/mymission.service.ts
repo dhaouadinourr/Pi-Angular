@@ -51,4 +51,8 @@ export class MymissionService {
     return this.http.get(`${this.url}/Mymission/getCompForMiss/${idM}`,{observe : 'response'})
    }
 
+   verifyNbPlaces(idM:any) : Observable<HttpResponse<any>>{
+    return this.http.get(`${this.url}/Mymission/getCapacity/${idM}`,{observe : 'response'})
+   }
+
 }

@@ -33,16 +33,10 @@ export class MissionsPageComponent implements OnInit {
       this.missionList = res.body
       console.log(this.missionList)
     })
-    this.Username=localStorage.getItem('username')    
-    console.log(this.Username)
+    
   }
 
-  participateToMission(id:any ){
-    this._missionService.participateToMission(id,this.Username).subscribe((res:any)=>{
-      console.log(res.body)
-      
-    })
-  }
+  
   getNbPlaces(idM : any) {
    this._missionService.getNbPlaces(idM).subscribe((res:any)=>{
     this.nbPlacesUsed = res.body
@@ -50,8 +44,10 @@ export class MissionsPageComponent implements OnInit {
    })
   }
 
-  openModal(){
+  openModal(id :any){
     this.openParticpateModal = !this.openParticpateModal;
+    this.idMiss =id
+    localStorage.setItem('idMissionPar',this.idMiss)
   }
 
   closeModalParticpate($event : any) : void{

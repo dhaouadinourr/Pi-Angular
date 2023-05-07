@@ -15,7 +15,9 @@ import { MymissionService } from 'src/app/services/mymission.service';
 })
 export class AddMissionComponent implements OnInit {
 
- idMissionForm!:number
+ idMissionForm!:any
+
+ openParticpateModal:boolean = false;
 
   hideForm = false;
   mission : Mymission = new Mymission()
@@ -47,9 +49,16 @@ export class AddMissionComponent implements OnInit {
     this._missionService.addMission(this.mission).subscribe((res:any)=>{
       this.mission = res.body
       this.idMissionForm=res.body.id      
+      console.log(this.idMissionForm)
+      localStorage.setItem('idMissionForm',this.idMissionForm);
   })
-  console.log(this.mission)
-  console.log(this.idMissionForm)
+  //console.log(this.mission)
+  //console.log(this.idMissionForm)
+  }
+
+  executeMission(){
+    this.addMission();
+    this.openModal();
   }
 
   selectCompetence(competence: any) {      
@@ -59,13 +68,21 @@ export class AddMissionComponent implements OnInit {
 
   affectCompetenceToMission(){
     this._missionService.affectCompToMiss(this.idMissionForm,this.myValues).subscribe((data:any)=>{
-      console.log(data)
+      //console.log(data)
       this.refresh();
     })
   }
 
   refresh(): void {
     window.location.reload();
+  }
+
+  openModal(){
+    this.openParticpateModal = !this.openParticpateModal;
+  }
+
+  closeModalParticpate($event : any) : void{
+    this.openParticpateModal = $event
   }
 
 

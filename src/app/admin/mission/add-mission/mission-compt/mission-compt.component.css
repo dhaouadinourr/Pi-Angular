@@ -54,11 +54,12 @@
 
   .modal-body {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 200px;
     background-color: #f0f0f0;
     border-bottom: 1px solid #ccc;
+    flex-direction: row;
+    justify-content: space-between;
   }
   .btn-primary {
     background-color: #20c997;
@@ -67,4 +68,50 @@
   .btn-secondary {
     background-color: #c92020;
     color: #fff;
+  }
+
+  .competence {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border: 2px solid #0077B5;
+    border-radius: 20px;
+    color: #0077B5;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .competence.selected {
+    background-color: #0077B5;
+    color: #FFFFFF;
+  }
+  
+  .competence:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #0077B5 transparent;
+  }
+
+  .centered-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .modal-footer {
+    width: 50%;
+    float: right;
   }

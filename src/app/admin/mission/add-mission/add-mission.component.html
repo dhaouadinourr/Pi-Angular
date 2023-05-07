@@ -1,4 +1,10 @@
 <div class="container" >
+
+    <app-mission-compt *ngIf="openParticpateModal" [modalParticipate]="openParticpateModal"
+                        (closeModalParticipate)="closeModalParticpate($event)"
+                        ></app-mission-compt>
+
+    
     <div class="add-Area">
         <div class="row">
             <div class="col-md-8">
@@ -68,7 +74,7 @@
                     </div>
                     <div class="row">
                     <div class="update ml-auto mr-auto">
-                        <button type="submit" class="btn btn-primary btn-round" data-toggle="modal" data-target="#cmptModal" [disabled]="f.invalid" (click)="addMission()">Add Mission</button>
+                        <button type="submit" class="btn btn-primary btn-round" data-toggle="modal" data-target="#cmptModal" [disabled]="f.invalid" (click)="executeMission()">Add Mission</button>
                     </div>
                     </div>
                 </form>

@@ -1,0 +1,30 @@
+<div class="modal modal-product-area" [class]="modalParticipate ? 'open' : ''">
+    <div>      
+      <div class="form-container">
+      <div class="modal-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-user">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" #modal>Select Competence</h5>
+                            <button type="button" class="btn-close" (click)="close()"></button>
+                        </div>           
+                        <div class="modal-body">
+                            <div class="centered-content">
+                            <ul class="competence-container" >
+                                <li class="competence" [class.selected]="competence.cname" *ngFor="let competence of competenceList" (click)="selectCompetence(competence)">
+                                {{ competence.cname }}
+                                </li>                        
+                            </ul>
+                            </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary btn-round" (click)="affectCompetenceToMission()">Affecter</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>     
+       </div>
+    </div>
+  </div>
