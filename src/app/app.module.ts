@@ -25,7 +25,7 @@ import { CategoryeventComponent } from './front/categoryevent/categoryevent.comp
 import { EventbycategComponent } from './front/eventbycateg/eventbycateg.component';
 import { SingleventComponent } from './front/singlevent/singlevent.component';
 import { ReviewComponent } from './front/singlevent/review/review.component';
-
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 import { ListUserComponent } from './admin/list-user/list-user.component';
 import { EditUserComponent } from './admin/list-user/edit-user/edit-user.component';
@@ -72,7 +72,6 @@ import { MissionComptComponent } from './admin/mission/add-mission/mission-compt
     EventbycategComponent,
     SingleventComponent,
     ReviewComponent,
-   
     ListUserComponent,
     EditUserComponent,
     AdminLayoutComponent,
@@ -103,6 +102,7 @@ import { MissionComptComponent } from './admin/mission/add-mission/mission-compt
     FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule,
+    NgxStarRatingModule,
    
   ],
   providers: [],

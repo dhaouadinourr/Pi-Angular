@@ -24,13 +24,14 @@
     "@angular/router": "~13.3.0",
     "@auth0/angular-jwt": "^5.1.2",
     "@schematics/angular": "^9.1.13",
-    "i": "^0.3.7",
     "bootstrap": "^5.2.3",
+    "i": "^0.3.7",
     "ngx-pagination": "^6.0.3",
+    "ngx-star-rating": "^2.1.0",
     "npm": "^9.6.6",
     "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
     "sweetalert2": "^11.4.8",
+    "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
