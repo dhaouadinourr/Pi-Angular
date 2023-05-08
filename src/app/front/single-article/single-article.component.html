@@ -1,0 +1,121 @@
+<!-- 
+<div *ngIf="article">
+    <h1>{{ article.title }}</h1>
+    <div class="image">{{article.image}}</div> 
+    <img [src]="imageToShow"
+     alt="Place image title" width="100px" height="100px" *ngIf="!isImageLoading;">
+    <p>{{ article.description }}</p>
+    <p>{{ article.content }}</p>
+    <p>{{ article.createdAt }}</p>
+    <p>{{ article.updatedAt }}</p>
+    <p>{{ article.etoile }}</p>
+    <ul *ngFor="let comment of article.comments">
+      <li>{{ comment.name }}</li>
+      <li>{{ comment.body }}</li>
+    </ul>
+    
+
+
+
+  </div> -->
+  <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Humanity</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="../../../assets/front/css/bootstrap.min.css">
+        <!--[if lt IE 9]>
+            <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link href="../../../assets/front/css/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../assets/front/css/demo.css" />
+        <link rel="stylesheet" href="../../../assets/front/css/testimonial.css" />
+        <link rel="stylesheet" href="../../../assets/front/css/font-awesome.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+            <div class="divider col-sm-12 col-xs-12 col-md-12">
+        <div class="header-text"> Our <span>Blog</span></div>
+    </div>
+  <div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="d-flex flex-column col-md-8">
+            <div class="coment-bottom bg-white p-2 px-4" *ngIf="article">
+                <div class="d-flex flex-row add-comment-section mt-4 mb-4"><img class="img-fluid img-responsive rounded-circle mr-2" src="https://i.imgur.com/qdiP4DB.jpg" width="38"><input type="text" class="form-control mr-3" placeholder="Add comment"><button class="btn btn-primary" type="button">Comment</button></div>
+                <div
+                    class="commented-section mt-2"*ngFor="let comment of article.comments">
+                    <div class="d-flex flex-row align-items-center commented-user">
+                        <h5 class="mr-2">{{comment.name}}</h5><span class="dot mb-1"></span><span class="mb-1 ml-2">4 hours ago</span></div>
+                    <div class="comment-text-sm"><span>{{comment.body}}</span></div>
+                    <div class="reply-section">
+                        <div class="d-flex flex-row align-items-center voting-icons"><i class="fa fa-sort-up fa-2x mt-3 hit-voting"></i><i class="fa fa-sort-down fa-2x mb-3 hit-voting"></i><span class="ml-2">10</span><span class="dot ml-2"></span>
+                            <h6 class="ml-2 mt-1">Reply</h6>
+                        </div>
+            </div>
+        </div>
+       
+        
+    </div>
+</div>
+</div>
+</div>
+<footer id="footer"> 
+        <div class="footer-content container">
+            <div class="footer-adress text-center col-xs-12 col-sm-4 col-md-4">
+                <h4>Great love for humanity</h4>
+                <ul class="footer-menus">
+                  <li>Home /</li>
+                  <li>About </li><br />
+                  <li>Service /</li>
+                  <li>Gallery /</li>
+                  <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-second col-xs-12 col-sm-4 col-md-4">
+              <div class="social-block text-center">
+                <div class="social-share">
+                  <i class="fa fa-2x fa-facebook"></i>
+                  <i class="fa fa-2x  fa-twitter"></i>
+                  <i class="fa fa-2x  fa-google-plus"></i>
+                  <i class="fa fa-2x  fa-instagram"></i>
+                </div>
+              </div>
+               <p class="text-center footer-text1">123 456 7890</p>
+                <p class="text-center footer-text">humanity@shuvohabib.com</p></div>
+            <div class="footer-third col-xs-12 col-sm-4 col-md-4">
+              <div class="copyright">
+                  <span>Copyright 2014 Theme</span><br>
+                  <span>All Rights Reserved</span>
+              </div>
+            </div>
+        </div>
+        <div class="move-top-page">
+      </div>
+    </footer>
+
+  <!-- script references -->
+    <script src="../../../assets/front/js/jquery.min.js"></script>
+    <script src="../../../assets/front/js/bootstrap.min.js"></script>
+    <script src="../../../assets/front/js/nav-hover.min.js"></script>
+    <script type="text/javascript" src="../../../assets/front/js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="../../../assets/front/js/main.js"></script>
+    <!-- Place in the <head>, after the three links -->
+    <script>
+     $('.testimonials-slider').bxSlider({
+      slideWidth: 800,
+      minSlides: 1,
+      maxSlides: 1,
+      slideMargin: 32,
+      auto: true,
+      autoControls: true
+      });
+    </script>
+    <script type="text/javascript">
+    </script>
+  </body>
+</html>
+

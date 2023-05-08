@@ -1,0 +1,78 @@
+<div class="container" >
+    <div class="add-Area">
+        <div class="row">
+            <div class="col-md-8">
+            <div class="card card-user">
+                <div class="card-header">
+                <h5 class="card-title text-center">Edit User</h5>
+                </div>
+                <div class="card-body">
+                <form #f="ngForm" action=""> 
+                    <div class="row">
+                    <div class="col-md-6  pr-1">
+                        <div class="form-group">
+                        <label for="firstName">First name</label>
+                        <input type="text" class="form-control" placeholder="First name" id="firstName" name="firstName" #firstName="ngModel" [(ngModel)]="user.firstName" required>                        
+                        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+                            <div *ngIf="firstName.errors?.['required']">First name is required</div>                              
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6  pl-1">
+                        <div class="form-group">
+                        <label for="lastName">Last name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" id="lastName" name="lastName" #firstName="ngModel" [(ngModel)]="user.lastName" required >                        
+                        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+                            <div *ngIf="firstName.errors?.['required']">Last name is required</div>                              
+                        </div>
+                        </div>
+                    </div>
+                    </div>                             
+                    <div class="row">                    
+                    <div class="col-md-12">
+                        <div class="form-group">
+                        <label for="dateFin">Date of birth</label>
+                        <input type="date" class="form-control" placeholder="Date Of Birth" id="dateOfBirth" name="dateOfBirth" #dateOfBirth="ngModel" [(ngModel)]="user.dateOfBirth" required>
+                        <div class="alert alert-danger" *ngIf="dateOfBirth.touched && dateOfBirth.invalid">
+                            <div *ngIf="dateOfBirth.errors?.['required']">Last name is required</div>                              
+                        </div>
+                        </div>
+                    </div>
+                    </div>                                     
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                            <label for="contactNumber">Phone Number</label>
+                            <input type="number" class="form-control" placeholder="Phone number" id="contactNumber" name="contactNumber" #contactNumber="ngModel" [(ngModel)]="user.contactNumber" required minlength="3" pattern="[0-9]{8}">                       
+                            <div class="alert alert-danger" *ngIf="contactNumber.touched && contactNumber.invalid">
+                                <div *ngIf="contactNumber.errors?.['required']">Phone Number is required</div>      
+                                <div *ngIf="contactNumber.errors?.['pattern']">Phone Number must have 8 numbers</div>                          
+                            </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="row">
+                    <div class="update ml-auto mr-auto">
+                        <button type="submit" class="btn btn-primary btn-round" (click)="editUser()">Confirm</button>
+                    </div>
+                    </div>                  
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get the current date and format it as yyyy-mm-dd
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const formattedDate = `${yyyy}-${mm}-${dd}`;
+    
+    // Set the min attribute of the input to today's date
+    const dateInput = document.getElementById("date-input");
+    dateInput.min = formattedDate;
+  </script>
