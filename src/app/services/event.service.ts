@@ -6,10 +6,12 @@ import {
   HttpHeaders,
   HttpEvent,
   HttpRequest,
+  HttpResponse,
 } from '@angular/common/http';
 import { Event } from '../Models/event';
 import { User } from '../Models/user';
 import { EventComment } from '../Models/event-comment';
+import { environment } from 'src/environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -24,7 +26,7 @@ const httpOptions = {
 
 export class EventService {
   baseUrl = 'http://localhost:9090/event';
-  test = 'http://localhost:9090'
+  url = `${environment.apiBaseUrl}`
   event: Event = new Event();
   categ: EventComment = new EventComment();
 
@@ -79,6 +81,10 @@ export class EventService {
   search(startDate: string,endDate:string): Observable<any> {
     return this.httpClient.get<any>(this.baseUrl +`/findbydate?startDate=${startDate}&endDate=${endDate}`);
   }
+
+  participateToMission(id:any , name:any) : Observable<HttpResponse<any>>{
+    return this.httpClient.put(`${this.url}/event/addWtUser/${id}` , name ,{observe : 'response'});
+   }
 
   
 

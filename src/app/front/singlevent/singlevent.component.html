@@ -35,7 +35,7 @@
             <ul class="shop-thumbnails mt-30">
               <li class="shop-thumbnail">
                 <a class="active" data-image="0">
-                  <img src="{{ this.eventService.baseUrl + '/Imgarticle/' + event?.id_event }}" alt="Thum" />
+                  <img src="{{ this.eventService.baseUrl + '/Imgarticle/' + event?.id_event }}"  width="500" height="400" alt="Thum" />
                 </a>
               </li>
               <!-- <li class="shop-thumbnail">
@@ -63,7 +63,7 @@
               <h6>end-date:{{ event.dateFin }}</h6>
               <div class="shop-actions pt-15">
                 
-                <button type="button" class="main-btn" (click)="particip(event.id_event, iduser)">Participer</button>
+                <button type="button" class="main-btn" (click)="particip(event.id_event, user)">Participer</button>
                 <button type="button" class="main-btn" (click)="unparticip(event.id_event, iduser)">Remove Participation</button>
               </div>
             </div>

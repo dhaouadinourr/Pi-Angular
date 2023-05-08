@@ -1,0 +1,17 @@
+.list-card-content {
+  display: block;
+}
+.modal-lg { /* added this class for bigger modal */
+  max-width: 80%;
+}
+
+@media (min-width: 1200px) { /* increase modal size for larger screens */
+  .modal-lg {
+    max-width: 1000px;
+  }
+}
+.btn-mission {
+  background-color: #20c997;
+  color: #fff;
+  border-radius: 20px;
+}

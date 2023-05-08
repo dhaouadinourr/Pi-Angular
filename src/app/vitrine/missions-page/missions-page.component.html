@@ -1,0 +1,95 @@
+<div class="header container">
+  <div class="visible-xs visible-sm col-xs-12 col-sm-12 text-center sm-logo">
+    <a rel="home" href="index.html">
+      <img src="../../../assets/front/img/logo.png" width="200" alt="logo">
+    </a>
+  </div>
+</div>
+<div class="navbar" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+  </div>
+
+        
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="selected"><a routerLink="">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Sevices</a></li>
+      <li><a [routerLink]="['/mission']">Missions</a></li>
+      <li class= "hidden-xs hidden-sm">
+        <a rel="home" href="index.html"><img class="logo" src="../../../assets/front/img/logo.png" width="200" alt="logo"></a>
+      </li>
+      <li><a routerLink="event">Events</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <div *ngIf="userToken" style="float: right;">
+        <button class="btn-mission btn-round ml-auto py-2 px-4" type="button" (click)="logOut()">Logout</button>
+      </div>
+      <div *ngIf="userToken===null" style="float: right;">
+        <li><a [routerLink]="['/login']" >Login</a></li>
+      </div>	
+    </ul>
+  </div>
+</div>
+
+<app-participate *ngIf="openParticpateModal" [modalParticipate]="openParticpateModal"
+                (closeModalParticipate)="closeModalParticpate($event)"
+                ></app-participate>
+<section style="background-color: #eee;">
+  <div class="container py-5" *ngFor="let missList of missionList">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3">
+          <div class="card-body">
+            <div class="row" >
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
+                    class="w-100" />
+                  <a href="#!">
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-6">
+                <h5>{{missList.title}}</h5>                              
+                <p class="text-truncate mb-4 mb-md-0">
+                  Desciption : {{missList.description}}
+                </p>
+                <div *ngIf="missList.competences.length !=0">
+                  Competence :
+                  <p class="text-truncate mb-4 mb-md-0" *ngFor="let item of missList.competences">
+                     {{item.cname}}
+                  </p>
+                </div>
+                <p class="text-truncate mb-4 mb-md-0">
+                  Start Date : {{missList.dateDebut}}
+                </p>
+                <p class="text-truncate mb-4 mb-md-0">
+                  End Date : {{missList.dateFin}}
+                </p>
+              </div>
+              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                <div class="d-flex flex-row align-items-center mb-1">
+                  <h4 class="mb-1 me-1">Free places {{missList.freePlaces}}</h4>
+                </div>
+                <h6 class="text-danger" *ngIf="missList.freePlaces==0">Mission full</h6>
+                <div class="d-flex flex-column mt-4">
+                  <button class="btn-mission btn-round " type="button" [disabled]="missList.freePlaces==0" (click)="openModal(missList.id)" >Participate</button>                                      
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>

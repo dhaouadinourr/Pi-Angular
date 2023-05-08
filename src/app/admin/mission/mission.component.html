@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="list-table-item-area">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header-table">
+                        <div class="card-header">
+                        <h4 class="card-title" > Mission Table</h4>
+                        <button [routerLink]="['/admin/mission/add']" class="btn btn-primary btn-round">Add Mission</button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Location</th>
+                                    <th>Date Debut</th>
+                                    <th>Date Fin</th>
+                                    <th>Actions</th>
+                                </thead>
+                                <tbody *ngFor="let missionList of MissionList">
+                                    <tr>
+                                        <td>{{missionList.title}}</td>
+                                        <td>{{missionList.description}}</td>
+                                        <td>{{missionList.location}}</td>
+                                        <td>{{missionList.dateDebut}}</td>
+                                        <td>{{missionList.dateFin}}</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-round" [routerLink]="['/admin/mission/edit',missionList.id]">Edit</button>
+                                            <button class="btn btn-primary btn-round" (click)="deleteMission(missionList.id)">Delete</button>
+                                            <button class="btn btn-primary btn-round" [routerLink]="['/admin/mission/details',missionList.id]">details</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  

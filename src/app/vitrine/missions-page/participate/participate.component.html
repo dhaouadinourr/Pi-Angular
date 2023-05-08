@@ -1,0 +1,20 @@
+<div class="modal modal-product-area" [class]="modalParticipate ? 'open' : ''">
+  <div>
+    <div class="inscription-form-title-blc">
+      <!-- This button seems to be closing the modal, so I assume it's in the right place -->
+      <button type="button" (click)="close()" class="btn btn-blue"></button>
+    </div>
+    <div class="form-container">
+      <div class="modal-header">
+        <h1>Confirm participation!</h1>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-primary btn-round" [disabled]="!FullMission" (click)="participateToMission()">Yes</button>
+        <button type="button" class="btn btn-secondary " (click)="close()">No</button>        
+      </div>
+      <div class="alert alert-danger" *ngIf="!FullMission">
+        <div>The mission is full you can't particapate</div>
+      </div>
+    </div>
+  </div>
+</div>

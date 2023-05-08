@@ -26,6 +26,14 @@ import { ResetPasswordComponent } from './admin/login/reset-password/reset-passw
 import { LoginFComponent } from './vitrine/login-f/login-f.component';
 import { SignupFComponent } from './vitrine/signup-f/signup-f.component';
 import { EventbydateComponent } from './front/eventbydate/eventbydate.component';
+import { CompetenceComponent } from './admin/competence/competence.component';
+import { AddCompetenceComponent } from './admin/competence/add-competence/add-competence.component';
+import { EditCompetenceComponent } from './admin/competence/edit-competence/edit-competence.component';
+import { MissionComponent } from './admin/mission/mission.component';
+import { AddMissionComponent } from './admin/mission/add-mission/add-mission.component';
+import { EditMissionComponent } from './admin/mission/edit-mission/edit-mission.component';
+import { DetailsMissionComponent } from './admin/mission/details-mission/details-mission.component';
+import { MissionsPageComponent } from './vitrine/missions-page/missions-page.component';
 
 const routes: Routes = [ 
   {path : '', component:HeaderComponent},
@@ -63,6 +71,45 @@ const routes: Routes = [
       component: EditUserComponent
     }
    ]},
+ {
+  path: 'admin/competence', component: AdminLayoutComponent , canActivate: [AuthGuard],
+  children :[
+    {
+      path:'' ,
+      component : CompetenceComponent 
+      },
+      {
+        path:'add',
+        component : AddCompetenceComponent
+      },
+      {
+        path:'edit/:id',
+        component: EditCompetenceComponent
+      }
+  ]
+  },
+  { 
+    path: 'admin/mission', component: AdminLayoutComponent , canActivate: [AuthGuard],
+    children :[
+      {
+      path:'' ,
+      component : MissionComponent 
+      },
+      {
+        path:'add',
+        component : AddMissionComponent
+      },
+      {
+        path:'edit/:id',
+        component:EditMissionComponent
+      },
+      {
+        path:'details/:id',
+        component:DetailsMissionComponent
+      }
+    ]
+   },
+   {path:'mission',component:MissionsPageComponent}
   ];
   
   @NgModule({

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Event } from 'src/app/Models/event';
 import { EventService } from 'src/app/services/event.service';
@@ -12,8 +12,8 @@ import { EventService } from 'src/app/services/event.service';
   '../../../assets/front/css/font-awesome.min.css',
   '../../../assets/front/css/demo.css',
   '../../../assets/front/css/bootstrap.min.css',
-  
-]
+],
+encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class EventsComponent implements OnInit {
 

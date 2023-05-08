@@ -41,14 +41,21 @@
 					<li class="selected"><a routerLink="">Home</a></li>
 					<li><a href="about.html">About</a></li>
 					<li><a href="service.html">Sevices</a></li>
-					<li><a href="gallery.html">Gallery</a></li>
+					<li><a [routerLink]="['/mission']">Missions</a></li>
           <li class= "hidden-xs hidden-sm">
             <a rel="home" href="index.html"><img class="logo" src="../../../assets/front/img/logo.png" width="200" alt="logo"></a>
           </li>
 					<li><a routerLink="event">Events</a></li>
 					<li><a href="team.html">Team</a></li>
 					<li><a href="donate.html">Donate</a></li>
-          <li><a href="contact.html">Contact</a></li>
+					<div *ngIf="userToken" style="float: right;">
+						<button class="btn-mission btn-round ml-auto py-2 px-4" type="button" (click)="logOut()">Logout</button>
+					</div>
+					<div *ngIf="userToken===null" style="float: right;">
+						<li><a [routerLink]="['/login']" >Login</a></li>
+					</div>					
+					
+					
 				</ul>
 			</div>
 		</div>

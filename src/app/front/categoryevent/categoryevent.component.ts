@@ -1,4 +1,4 @@
-import { Component, Input, Output,OnInit, EventEmitter } from '@angular/core';
+import { Component, Input, Output,OnInit, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CategorieEvent } from 'src/app/Models/categorie-event';
 import { Event } from 'src/app/Models/event';
@@ -8,7 +8,8 @@ import { EventService } from 'src/app/services/event.service';
 @Component({
   selector: 'app-categoryevent',
   templateUrl: './categoryevent.component.html',
-  styleUrls: ['./categoryevent.component.css']
+  styleUrls: ['./categoryevent.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class CategoryeventComponent implements OnInit {
 

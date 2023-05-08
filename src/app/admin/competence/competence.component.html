@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="list-table-item-area">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header-table">
+                        <div class="card-header">
+                        <h4 class="card-title" > Competence Table</h4>
+                        <button [routerLink]="['/admin/competence/add']" class="btn btn-primary btn-round">Add Competence</button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>Competence Name</th>
+                                    <th>Actions</th>
+                                </thead>
+                                <tbody *ngFor="let competenceList of CompetenceList">
+                                    <tr>
+                                        <td>{{competenceList.cname}}</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-round" [routerLink]="['/admin/competence/edit',competenceList.id]">Edit</button>
+                                            <button class="btn btn-primary btn-round" (click)="deleteCompetence(competenceList.id)">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
