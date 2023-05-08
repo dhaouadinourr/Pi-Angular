@@ -1,6 +1,7 @@
 <div class="container" >
 
     <app-mission-compt *ngIf="openParticpateModal" [modalParticipate]="openParticpateModal"
+                        [idMissionForComp]="idMissionForm"
                         (closeModalParticipate)="closeModalParticpate($event)"
                         ></app-mission-compt>
 

@@ -18,6 +18,7 @@ export class MissionComptComponent implements OnInit {
   
 
   @Input() modalParticipate : boolean= true
+  @Input() idMissionForComp !: number
   @Output() closeModalParticipate =new EventEmitter<boolean>(); 
 
   constructor(
@@ -29,7 +30,7 @@ export class MissionComptComponent implements OnInit {
     this._cmptService.getAll().subscribe((res:any)=>{
       this.competenceList = res.body
     })
-    this.idMissionForm = localStorage.getItem('idMissionForm');
+    this.idMissionForm = localStorage.getItem('idMissionForm') ;
     console.log(this.idMissionForm)
   }
 
@@ -42,7 +43,9 @@ export class MissionComptComponent implements OnInit {
   }
 
   affectCompetenceToMission(){
-    this._missionService.affectCompToMiss(this.idMissionForm,this.myValues).subscribe((data:any)=>{
+    let idMission = parseInt(this.idMissionForm)
+    idMission = idMission+1 ;
+    this._missionService.affectCompToMiss(idMission,this.myValues).subscribe((data:any)=>{
       console.log(data)
       this.refresh();
     })

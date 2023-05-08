@@ -8,5 +8,5 @@ export class Mymission{
     dateDebut?:Date;
     dateFin?:Date;
     nbPlaces?:number;
-    competences!:Competence[]
+    freePlaces?:number;
 }

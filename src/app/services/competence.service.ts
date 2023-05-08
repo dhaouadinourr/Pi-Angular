@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -16,15 +16,30 @@ export class CompetenceService {
   ) { }
 
   addComptence(competence:Competence) : Observable<HttpResponse<any>>{
-    return this.http.post(`${this.url}/Competence/add`,competence, {observe : 'response'})
+    console.log(localStorage.getItem('adminToken'))
+    const token =localStorage.getItem('adminToken');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(`${this.url}/Competence/add`,competence, {headers ,observe : 'response'})
   }
 
   editCompetence(competence:Competence) : Observable<HttpResponse<any>>{
-    return this.http.put(`${this.url}/Competence/update`,competence, {observe : 'response'})
+    console.log(localStorage.getItem('adminToken'))
+    const token =localStorage.getItem('adminToken');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put(`${this.url}/Competence/update`,competence, {headers ,observe : 'response'})
   }
 
   getAll(): Observable<HttpResponse<any>>{
-    return this.http.get(`${this.url}/Competence/getAll`, {observe : 'response'})
+    console.log(localStorage.getItem('adminToken'))
+    const token =localStorage.getItem('adminToken');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${this.url}/Competence/getAll`, {headers ,observe : 'response'})
   }
 
   getById(id:any) : Observable<HttpResponse<any>>{
@@ -32,7 +47,12 @@ export class CompetenceService {
   }
 
   delete(id:any) : Observable<HttpResponse<any>>{
-    return this.http.delete(`${this.url}/Competence/delete/${id}` , {observe : 'response'})
+    console.log(localStorage.getItem('adminToken'))
+    const token =localStorage.getItem('adminToken');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.delete(`${this.url}/Competence/delete/${id}` , {headers ,observe : 'response'})
   }
 
 }

@@ -1,3 +1,37 @@
+<div class="header container">
+  <div class="visible-xs visible-sm col-xs-12 col-sm-12 text-center sm-logo">
+    <a rel="home" href="index.html">
+      <img src="../../../assets/front/img/logo.png" width="200" alt="logo">
+    </a>
+  </div>
+</div>
+<div class="navbar" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+  </div>
+
+        
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li class="selected"><a routerLink="">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="service.html">Sevices</a></li>
+      <li><a [routerLink]="['/mission']">Missions</a></li>
+      <li class= "hidden-xs hidden-sm">
+        <a rel="home" href="index.html"><img class="logo" src="../../../assets/front/img/logo.png" width="200" alt="logo"></a>
+      </li>
+      <li><a routerLink="event">Events</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a [routerLink]="['/login']">Login</a></li>
+    </ul>
+  </div>
+</div>
 
 <app-participate *ngIf="openParticpateModal" [modalParticipate]="openParticpateModal"
                 (closeModalParticipate)="closeModalParticpate($event)"
@@ -21,27 +55,28 @@
                 </div>
               </div>
               <div class="col-md-6 col-lg-6 col-xl-6">
-                <h5>{{missList.title}}</h5>
-                <div class="d-flex flex-row">
-                  <div class="text-danger mb-1 me-2">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                  </div>
-                  <span>310</span>
-                </div>               
+                <h5>{{missList.title}}</h5>                              
                 <p class="text-truncate mb-4 mb-md-0">
                   Desciption : {{missList.description}}
+                </p>
+                <p class="text-truncate mb-4 mb-md-0">
+                  Competence : {{missList.competence?.cname}}
+                </p>
+                <p class="text-truncate mb-4 mb-md-0">
+                  Start Date : {{missList.dateDebut}}
+                </p>
+                <p class="text-truncate mb-4 mb-md-0">
+                  End Date : {{missList.dateFin}}
                 </p>
               </div>
               <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                 <div class="d-flex flex-row align-items-center mb-1">
-                  <h4 class="mb-1 me-1">Free places {{missList.nbPlaces}}</h4>
+                  <h4 class="mb-1 me-1">Free places {{missList.freePlaces}}</h4>
                 </div>
-                <h6 class="text-success">Still available</h6>
+                <h6 class="text-success" *ngIf="missList.freePlaces">Still available</h6>
+                <h6 class="text-danger" *ngIf="missList.freePlaces==0">Mission full</h6>
                 <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-primary btn-sm" type="button" (click)="openModal(missList.id)" >Participate</button>                                      
+                  <button class="btn-mission btn-round " type="button" (click)="openModal(missList.id)" >Participate</button>                                      
                 </div>
               </div>
             </div>

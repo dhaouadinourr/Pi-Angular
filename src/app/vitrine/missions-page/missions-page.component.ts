@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Mymission } from 'src/app/Models/Mymission';
+import { Competence } from 'src/app/Models/competence';
 import { User } from 'src/app/Models/user';
+import { CompetenceService } from 'src/app/services/competence.service';
 import { MymissionService } from 'src/app/services/mymission.service';
 
 @Component({
@@ -12,8 +14,9 @@ import { MymissionService } from 'src/app/services/mymission.service';
 export class MissionsPageComponent implements OnInit {
 
   mission:Mymission = new Mymission();
-  missionList:Mymission[]=[]
+  missionList:any[]=[]
   user!:User
+  comptList:Competence[]=[]
 
   openParticpateModal:boolean = false;
 
@@ -22,20 +25,30 @@ export class MissionsPageComponent implements OnInit {
   idMiss :any
 
   Username!:any
+
+  FullMission !:boolean
   
   constructor(
     private _missionService : MymissionService,
-    private _router : Router
+    private _router : Router,
+    private _cmt:CompetenceService
   ) { }
 
   ngOnInit(): void {
     this._missionService.getAllMissions().subscribe((res:any)=>{
-      this.missionList = res.body
+      this.missionList = res.body    
+      this.comptList = res.body.competences
+      console.log(res.body.competences)
       console.log(this.missionList)
     })
-    
   }
 
+  getCompetenceForMission(id:any){
+    this._missionService.getCompetenceForMission(id).subscribe((data:any)=>{
+      this.comptList=data.body
+      console.log(data.body)
+    })
+  }
   
   getNbPlaces(idM : any) {
    this._missionService.getNbPlaces(idM).subscribe((res:any)=>{
@@ -52,6 +65,13 @@ export class MissionsPageComponent implements OnInit {
 
   closeModalParticpate($event : any) : void{
     this.openParticpateModal = $event
+  }
+
+  verifyNbPlaces(id:any) {
+    this._missionService.verifyNbPlaces(id).subscribe((res:any)=>{      
+      this.FullMission = res.body
+      console.log(res.body)
+    })
   }
 
 }
