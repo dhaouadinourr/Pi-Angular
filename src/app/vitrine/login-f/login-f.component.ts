@@ -7,7 +7,11 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login-f',
   templateUrl: './login-f.component.html',
-  styleUrls: ['./login-f.component.css']
+  styleUrls: ['./login-f.component.css',
+  '../../../assets/login/css/bootstrap.min.css',
+  '../../../assets/login/css/style.css',
+  '../../../assets/login/scss/style.scss',
+]
 })
 export class LoginFComponent implements OnInit {
 
@@ -30,7 +34,6 @@ export class LoginFComponent implements OnInit {
     console
     this.submitted = true
     this._authService.LoginWithAdmin(this.user).subscribe((res:any)=>{
-      console.log(res.body.roles)
       this.data = res.body.token
       this.role = res.body.roles
       this.username = res.body.username
@@ -38,15 +41,16 @@ export class LoginFComponent implements OnInit {
       localStorage.setItem('role',this.role)     
       localStorage.setItem('username',this.username) 
     })
-    //this.redirection();    
+    this.redirection();    
   }
 
   redirection(){
     let role = localStorage.getItem('role')
+    console.log(role)
     if(role == 'ROLE_USER'){
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     }else if(role == 'ROLE_CLUB'){
-      this.router.navigate(['club'])
+      this.router.navigate(['/club'])
     }else
   this.router.navigate(['/']);
     console.log(role)

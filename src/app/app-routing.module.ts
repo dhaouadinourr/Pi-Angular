@@ -55,7 +55,7 @@ const routes: Routes = [
     }
    ]},
  {
-  path: 'admin/competence', component: AdminLayoutComponent,
+  path: 'admin/competence', component: AdminLayoutComponent , canActivate: [AuthGuard],
   children :[
     {
       path:'' ,
@@ -72,7 +72,7 @@ const routes: Routes = [
   ]
   },
   { 
-    path: 'admin/mission', component: AdminLayoutComponent,
+    path: 'admin/mission', component: AdminLayoutComponent , canActivate: [AuthGuard],
     children :[
       {
       path:'' ,
