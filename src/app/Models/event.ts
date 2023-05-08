@@ -1,4 +1,5 @@
 import { CategorieEvent } from "./categorie-event";
+import { EventComment } from "./event-comment";
 import { User } from "./user";
 
 export class Event {
@@ -8,7 +9,7 @@ export class Event {
    dateDebut!:Date;
    dateFin!:Date;
    categ!:CategorieEvent;
-   commentaire!: Array<Comment>;
+   comments!: Array<EventComment>;
    userevent!:Array<User>
  
 

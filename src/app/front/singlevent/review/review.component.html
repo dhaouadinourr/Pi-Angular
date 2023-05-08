@@ -26,7 +26,60 @@
           </div>
           <!-- row -->
           <div>
-          //commentaire
+            <div class="container mt-5">
+              <div class="row">
+                <div class="col-md-8 mx-auto">
+                  <div class="comment-section">
+                    <div *ngFor="let com of produit.comments; let i=index" class="comment">
+                      <div class="comment-header">
+                        <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="55" height="55">
+                        <div class="user-info ml-2">
+                          <span class="font-weight-bold name">{{u.firstName}}</span>
+                          <span class="date text-black-50"></span>
+                        </div>
+                      </div>
+                      <div class="comment-body">
+                        <div *ngIf="(edit==true && i==j); else noedit">
+                          <textarea class="form-control ml-1 shadow-none textarea" [(ngModel)]='com.comment' required></textarea>
+                        </div>
+                        <ng-template #noedit>
+                          <p class="comment-text">{{com.comment}}</p>
+                        </ng-template>
+                      </div>
+                      <div class="comment-footer">
+                        <div class="like">
+                          <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="button"
+                                  aria-pressed="false" autocomplete="off" (click)="likeModifyCom(com,produit)">
+                            {{com.likes}}
+                            <i class="fa fa-thumbs-up"></i>
+                          </button>
+                        </div>
+                        <div *ngIf="edit==false && com.idClient==1" class="edit">
+                          <button class="btn btn-light btn-sm" (click)="eventEdit(i)">Edit</button>
+                        </div>
+                        <div *ngIf="edit==false && com.idClient==1" class="delete">
+                          <button class="btn btn-light btn-sm" (click)="deleteCom(com)">Delete</button>
+                        </div>
+                        <div *ngIf="edit==true && i==j" class="save">
+                          <button type="button" class="btn btn-light btn-sm" (click)="modifyCom(com,produit)">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="add-comment">
+                      <div class="comment-header">
+                        <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                        <textarea class="form-control ml-1 shadow-none textarea" [(ngModel)]='str'></textarea>
+                      </div>
+                      <div class="comment-footer">
+                        <button class="btn btn-primary btn-sm shadow-none" type="button" (click)="addCom(produit)"
+                                [disabled]="edit==true">Post comment</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
         </div>
           <!-- row -->
         </div>

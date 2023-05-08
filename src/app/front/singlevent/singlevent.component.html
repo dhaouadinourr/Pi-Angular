@@ -26,151 +26,51 @@
 
     <!--====== SHOP PART START ======-->
    
-    <section id="shop-singel" class="pt-120 pb-120 ">
+    <section id="shop-singel" class="pt-120 pb-120">
       <div class="container">
-        <div class="shop-destails">
-          <div class="row">
-            <div class="col-lg-6">
-          
-                    <div >
-                      <a href="../../../../assets/front/images/shop-singel/ss-1.jpg" class="item active" 
-                        ><img src="{{this.eventService.baseUrl+'/Imgarticle/'+event?.id_event}}"  alt="Shop"
-                      /></a>
-                    </div>
-                  </div>
-                  <div
-                    class="tab-pane fade"
-                    id="pills-image-2"
-                    role="tabpanel"
-                    aria-labelledby="pills-image-2-tab"
-                  >
-                    <div class="shop-image">
-                      <a href="../../../../assets/front/images/shop-singel/ss-2.jpg" class="shop-items"
-                        ><img src="../../../../assets/front/images/shop-singel/ss-2.jpg" alt="Shop"
-                      /></a>
-                    </div>
-                  </div>
-                  <div
-                    class="tab-pane fade"
-                    id="pills-image-3"
-                    role="tabpanel"
-                    aria-labelledby="pills-image-3-tab"
-                  >
-                    <div class="shop-image">
-                      <a href="../../../../assets/front/images/shop-singel/ss-3.jpg" class="shop-items"
-                        ><img src="../../../../assets/front/images/shop-singel/ss-3.jpg" alt="Shop"
-                      /></a>
-                    </div>
-                  </div>
-                  <div
-                    class="tab-pane fade"
-                    id="pills-image-4"
-                    role="tabpanel"
-                    aria-labelledby="pills-image-4-tab"
-                  >
-                    <div class="shop-image">
-                      <a href="../../../../assets/front/images/shop-singel/ss-1.jpg" class="shop-items"
-                        ><img src="../../../../assets/front/images/shop-singel/ss-1.jpg" alt="Shop"
-                      /></a>
-                    </div>
-                  </div>
-                </div>
-                <ul
-                  class="nav nav-justified mt-30"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="active"
-                      id="pills-image-1-tab"
-                      data-toggle="pill"
-                      href="#pills-image-1"
-                      role="tab"
-                      aria-controls="pills-image-1"
-                      aria-selected="true"
-                    >
-                      <span class="shop-thum">
-                        <img src="../../../../assets/front/images/shop-singel/ss-s1.jpg" alt="Thum" />
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      id="pills-image-2-tab"
-                      data-toggle="pill"
-                      href="#pills-image-2"
-                      role="tab"
-                      aria-controls="pills-image-2"
-                      aria-selected="false"
-                    >
-                      <span class="shop-thum">
-                        <img src="../../../../assets/front/images/shop-singel/ss-s2.jpg" alt="Thum" />
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      id="pills-image-3-tab"
-                      data-toggle="pill"
-                      href="#pills-image-3"
-                      role="tab"
-                      aria-controls="pills-image-1"
-                      aria-selected="false"
-                    >
-                      <span class="shop-thum">
-                        <img src="../../../../assets/front/images/shop-singel/ss-s3.jpg" alt="Thum" />
-                      </span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      id="pills-image-4-tab"
-                      data-toggle="pill"
-                      href="#pills-image-4"
-                      role="tab"
-                      aria-controls="pills-image-4"
-                      aria-selected="false"
-                    >
-                      <span class="shop-thum">
-                        <img src="../../../../assets/front/images/shop-singel/ss-s1.jpg" alt="Thum" />
-                      </span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- shop left -->
-            </div>
-            <div class="col-lg-6">
-              <div class="shop-right pt-30">
-                <h6>{{ event.nomEvent }}</h6>
-               
-                <p>{{ event.details }}</p>
-               
-                <div class="add-btn pt-15">
-                 
-                  <button  type="button" class="main-btn" (click)="particip(event.id_event,iduser)">
-                    Participer 
-                  </button>
-                </div>
-                <div class="add-btn pt-15">
-                 
-                  <button  type="button" class="main-btn" (click)="unparticip(event.id_event,iduser)">
-                    remove participation 
-                  </button>
-                </div>
+        <div class="row">
+          <div class="col-lg-6">
+            
+            <ul class="shop-thumbnails mt-30">
+              <li class="shop-thumbnail">
+                <a class="active" data-image="0">
+                  <img src="{{ this.eventService.baseUrl + '/Imgarticle/' + event?.id_event }}" alt="Thum" />
+                </a>
+              </li>
+              <!-- <li class="shop-thumbnail">
+                <a data-image="1">
+                  <img src="../../../../assets/front/images/shop-singel/ss-s2.jpg" alt="Thum" />
+                </a>
+              </li>
+              <li class="shop-thumbnail">
+                <a data-image="2">
+                  <img src="../../../../assets/front/images/shop-singel/ss-s3.jpg" alt="Thum" />
+                </a>
+              </li>
+              <li class="shop-thumbnail">
+                <a data-image="3">
+                  <img src="../../../../assets/front/images/shop-singel/ss-s1.jpg" alt="Thum" />
+                </a>
+              </li> -->
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="shop-details pt-30">
+              <h6>{{ event.nomEvent }}</h6>
+              <p>{{ event.details }}</p>
+              <h6>start-date:{{ event.dateDebut }}</h6>
+              <h6>end-date:{{ event.dateFin }}</h6>
+              <div class="shop-actions pt-15">
+                <button type="button" class="main-btn" (click)="particip(event.id_event, iduser)">Participer</button>
+                <button type="button" class="main-btn" (click)="unparticip(event.id_event, iduser)">Remove Participation</button>
               </div>
             </div>
-          <!-- row -->
-        <app-review  ></app-review>
-          <!-- row -->
-        <!-- shop-destails -->
-        
-        <!-- Related Events -->
-
-        <!-- releted item -->
-      <!-- container -->
+          </div>
+        </div>
+        <app-review [produit]="event"></app-review>
+      </div>
     </section>
+    
 
     <!-- ============FOOTER============= -->
 <footer id="footer"> 

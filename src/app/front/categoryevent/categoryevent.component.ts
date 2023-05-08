@@ -14,7 +14,7 @@ export class CategoryeventComponent implements OnInit {
 
   categories!: CategorieEvent[];
   @Input() events!: Event[];
-  ev!:Event[]
+  @Input()ev!:Event[]
   @Output() rate = new EventEmitter<any>();
   inp!:any
   inp2!:any
@@ -39,7 +39,7 @@ export class CategoryeventComponent implements OnInit {
     console.log(inp2)
     this.rate.emit(inp);
     this.eventservice.search(inp,inp2).subscribe((e)=>{
-      this.events=e
+      this.ev=e
       console.log(e)
     })
   }

@@ -1,0 +1,107 @@
+
+<div class="container">
+  <div class="list-table-item-area">
+      <div class="content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-header">
+                <h4 class="card-title" > User Table</h4>
+              </div>
+              </div>
+
+              
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        FirstName
+                      </th>
+                      <th>
+                        LastName
+                      </th>
+
+                      <th>
+                        Date Of Birth
+                      </th>
+                      <th>
+                        Email
+                      </th>
+                      <th>
+                        ContactNumber
+                      </th>
+                      <th>
+                        Role
+                      </th>
+                      <th>
+                        Actions
+                      </th>
+
+
+                    </thead>
+                    <tbody id="myTable2">
+                      <tr *ngFor="let list of userList  ">
+                        <td>
+                          {{list.firstName}}
+                        </td>
+                        <td>
+                          {{list.lastName}}
+                        </td>
+                        <td>
+                            {{list.dateOfBirth}}
+                          </td>
+                          <td>
+                            {{list.email}}
+                          </td>
+                          <td>
+                            {{list.contactNumber}}
+                          </td>
+                          <td *ngFor="let rolee of list.role">
+
+                           {{rolee.name}}
+                          </td>
+                          <td>
+                            <button class="btn btn-primary btn-round" [routerLink]="['/admin/users/edit',list.id]">Edit</button>
+                            <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#exampleModal" (click)="deleteUser(list.id)">Delete</button>
+                          </td>                                           
+                      </tr>
+                    </tbody>
+                  </table>
+                
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--   Core JS Files   -->
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="row">
+              <div class="col-md-12">
+              <div class="card card-user">
+                  <div class="modal-header text-center">
+                      <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete User {{idUsTodelete}}?</h5>
+                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                  </div>           
+                  <div class="modal-body text-center">
+                      <button class="btn btn-danger btn-round mr-2" data-dismiss="modal" aria-label="Close" (click)="deleteUser(idUsTodelete)">Yes</button>
+                      <button class="btn btn-primary btn-round ml-2" data-dismiss="modal" aria-label="Close">No</button>
+                  </div>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+

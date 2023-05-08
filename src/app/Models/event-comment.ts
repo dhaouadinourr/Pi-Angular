@@ -1,6 +1,17 @@
+import { Event } from "./event";
+
 export class EventComment {
-    idCom!:number;
-    nomContenu!:String;
-    pic!:String;
-    events!:Event;
+    idCommentaire!: number;
+
+    idClient!: number;
+
+    comment!: string;
+
+    likes!: number;
+
+    events!: Event;
+
+    dateCreated!: Date;
+
+    lastUpdated!: Date;
 }

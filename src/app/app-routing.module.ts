@@ -15,6 +15,17 @@ import { CategoryproductComponent } from './admin/categoryproduct/categoryproduc
 import { UpdateProductComponent } from './admin/update-product/update-product.component';
 import { EventbycategComponent } from './front/eventbycateg/eventbycateg.component';
 import { SingleventComponent } from './front/singlevent/singlevent.component';
+import { ListUserComponent } from './admin/list-user/list-user.component';
+import { EditUserComponent } from './admin/list-user/edit-user/edit-user.component';
+import { AuthGuard } from './_guard/auth.guard';
+import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
+import { LoginComponent } from './admin/login/login.component';
+import { SignupComponent } from './admin/signup/signup.component';
+import { ForgetPasswordComponent } from './admin/login/forget-password/forget-password.component';
+import { ResetPasswordComponent } from './admin/login/reset-password/reset-password.component';
+import { LoginFComponent } from './vitrine/login-f/login-f.component';
+import { SignupFComponent } from './vitrine/signup-f/signup-f.component';
+import { EventbydateComponent } from './front/eventbydate/eventbydate.component';
 
 const routes: Routes = [ 
   {path : '', component:HeaderComponent},
@@ -26,7 +37,6 @@ const routes: Routes = [
 {path:'admin',component: DashbordComponent},
 {path: 'addEvent', component: AddEventComponent},
    { path: 'listEvent', component: ListEventComponent },
-   {path: 'admin', component: DashbordComponent},
    { path: 'updateEvent/:id', component: EditeEventComponent},
    { path: 'updateProduct/:id', component: UpdateProductComponent },
 {path: 'addProductCategory', component: CategoryproductComponent},
@@ -34,7 +44,25 @@ const routes: Routes = [
     {path: 'product/add', component: AddproductComponent},
 { path: 'listProduct', component: ListproductComponent },
 {path: 'event/:id',component:EventbycategComponent},
-{path: 'eventdetails/:id',component:SingleventComponent}
+{path: 'eventdetails/:id',component:SingleventComponent},
+{path:'eventbydate',component:EventbydateComponent},
+
+   {path: 'admin/login', component: LoginComponent},
+   {path: 'admin/signup', component: SignupComponent},
+   {path: 'admin/forgotpassword' , component:ForgetPasswordComponent},
+   {path: 'admin/resetpassword' , component:ResetPasswordComponent},
+   {path: 'login', component: LoginFComponent},
+   {path: 'signup', component: SignupFComponent},
+   {path:'admin/users',component:AdminLayoutComponent , canActivate: [AuthGuard] ,children:[
+    {
+      path:'',
+      component:ListUserComponent
+    },
+    {
+      path: 'edit/:id',
+      component: EditUserComponent
+    }
+   ]},
   ];
   
   @NgModule({

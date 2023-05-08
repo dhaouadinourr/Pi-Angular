@@ -9,6 +9,7 @@ import {
 } from '@angular/common/http';
 import { Event } from '../Models/event';
 import { User } from '../Models/user';
+import { EventComment } from '../Models/event-comment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -25,11 +26,15 @@ export class EventService {
   baseUrl = 'http://localhost:9090/event';
   test = 'http://localhost:9090'
   event: Event = new Event();
-  
+  categ: EventComment = new EventComment();
 
   public dataForm!: FormGroup;
 
   constructor(private httpClient: HttpClient) {}
+  
+  storageUserAsStr: any = localStorage.getItem('currentUser')
+    ? JSON.parse(localStorage.getItem('currentUser') || '{}')
+    : null;
 
 
   getEventList(): Observable<Event[]> {
@@ -77,4 +82,43 @@ export class EventService {
 
   
 
-}
+  addCom(c: EventComment): Observable<EventComment> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    console.log(c)
+    return this.httpClient.post<EventComment>(
+      'http://localhost:9090/eventComment/add-commentaire',
+      c
+    );
+  }
+  
+  modifyCom(c: EventComment): Observable<EventComment> {
+    return this.httpClient.put<EventComment>(
+      'http://localhost:9090/eventComment/modify-commentaire',
+      c
+    );
+  }
+  
+  deleteCom(id: any) {
+    return this.httpClient.delete<EventComment>(
+      'http://localhost:9090/eventComment/remove-client/' + id
+    );
+  }
+  
+  getByIDCom(idc: number): Observable<EventComment> {
+    return this.httpClient.get<EventComment>(
+      'http://localhost:9090/eventComment/retrieve-commentaire/' + idc
+    );
+  }
+  
+  getByIDComUser(idc: number): Observable<User> {
+   
+    return this.httpClient.get<User>(
+      'http://localhost:9090/eventComment/getUser/' + idc
+    );
+  }
+  }
+  
