@@ -14,17 +14,30 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  userToken!:any
+  user!:boolean
   constructor(
     private router:Router
   ) { }
 
   ngOnInit(): void {
-  }
+  
+      this.userToken = localStorage.getItem('adminToken')
+      if( this.userToken){this.user=true}
+      else{this.user=false}
+      console.log(this.userToken)
+      
+       
+    }
 
   logOut() {
     localStorage.removeItem('adminToken');
     localStorage.removeItem('role');
     this.router.navigate(['login']);
   }
+
+ 
+  
+
 
 }

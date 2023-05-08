@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       if(this.role == 'ROLE_ADMIN'){
         this.router.navigate(['/admin/users']);
       }else{
-        this.router.navigate(['/login']);
+        this.router.navigate(['/admin/login']);
       }
     })
     //this.redirection();    
