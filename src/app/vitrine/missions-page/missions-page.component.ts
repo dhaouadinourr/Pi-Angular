@@ -9,14 +9,19 @@ import { MymissionService } from 'src/app/services/mymission.service';
 @Component({
   selector: 'app-missions-page',
   templateUrl: './missions-page.component.html',
-  styleUrls: ['./missions-page.component.css']
+  styleUrls: ['./missions-page.component.css',
+  '../../../assets/front/css/testimonial.css',
+  '../../../assets/front/css/styles.css',
+  '../../../assets/front/css/font-awesome.min.css' ,
+  '../../../assets/front/css/demo.css',
+  '../../../assets/front/css/bootstrap.min.css',]
 })
 export class MissionsPageComponent implements OnInit {
 
   mission:Mymission = new Mymission();
   missionList:any[]=[]
   user!:User
-  comptList:Competence[]=[]
+  comptList:any[]=[]
 
   userToken!:any
   userC!:boolean
@@ -34,7 +39,7 @@ export class MissionsPageComponent implements OnInit {
   constructor(
     private _missionService : MymissionService,
     private _router : Router,
-    private _cmt:CompetenceService
+    private _cmt:CompetenceService,
   ) { }
 
   ngOnInit(): void {

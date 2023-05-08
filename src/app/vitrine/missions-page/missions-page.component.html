@@ -64,9 +64,12 @@
                 <p class="text-truncate mb-4 mb-md-0">
                   Desciption : {{missList.description}}
                 </p>
-                <p class="text-truncate mb-4 mb-md-0">
-                  Competence : {{missList.competence?.cname}}
-                </p>
+                <div *ngIf="missList.competences.length !=0">
+                  Competence :
+                  <p class="text-truncate mb-4 mb-md-0" *ngFor="let item of missList.competences">
+                     {{item.cname}}
+                  </p>
+                </div>
                 <p class="text-truncate mb-4 mb-md-0">
                   Start Date : {{missList.dateDebut}}
                 </p>
@@ -78,10 +81,9 @@
                 <div class="d-flex flex-row align-items-center mb-1">
                   <h4 class="mb-1 me-1">Free places {{missList.freePlaces}}</h4>
                 </div>
-                <h6 class="text-success" *ngIf="missList.freePlaces">Still available</h6>
                 <h6 class="text-danger" *ngIf="missList.freePlaces==0">Mission full</h6>
                 <div class="d-flex flex-column mt-4">
-                  <button class="btn-mission btn-round " type="button" (click)="openModal(missList.id)" >Participate</button>                                      
+                  <button class="btn-mission btn-round " type="button" [disabled]="missList.freePlaces==0" (click)="openModal(missList.id)" >Participate</button>                                      
                 </div>
               </div>
             </div>
