@@ -5,6 +5,9 @@ import { Event } from 'src/app/Models/event';
 import { EventComment } from 'src/app/Models/event-comment';
 import { EventService } from 'src/app/services/event.service';
 
+
+
+
 @Component({
   selector: 'app-singlevent',
   templateUrl: './singlevent.component.html',
@@ -14,9 +17,10 @@ import { EventService } from 'src/app/services/event.service';
   '../../../assets/front/css/font-awesome.min.css',
   '../../../assets/front/css/demo.css',
   '../../../assets/front/css/bootstrap.min.css',
-  
+ 
 ]
 })
+
 export class SingleventComponent implements OnInit {
   event: any ;
   d!: Event ;
@@ -82,3 +86,4 @@ export class SingleventComponent implements OnInit {
     } );
   }
 }
+

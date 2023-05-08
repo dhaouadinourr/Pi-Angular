@@ -15,6 +15,8 @@
           </li>
         
         </ul>
+
+        
         <!-- nav -->
         <div class="tab-content" id="myTabContent">
           <div class="tab-pane fade show active cursor-pointer"
@@ -39,8 +41,11 @@
                         </div>
                       </div>
                       <div class="comment-body">
+                        <div class="form-outline">
                         <div *ngIf="(edit==true && i==j); else noedit">
-                          <textarea class="form-control ml-1 shadow-none textarea" [(ngModel)]='com.comment' required></textarea>
+                          <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]='com.comment' required></textarea>
+                          <label class="form-label" for="textAreaExample">What is your view?</label>
+                        </div>
                         </div>
                         <ng-template #noedit>
                           <p class="comment-text">{{com.comment}}</p>
@@ -48,7 +53,8 @@
                       </div>
                       <div class="comment-footer">
                         <div class="like">
-                          <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="button"
+                            
+                          <button type="button" class="btn btn-success" 
                                   aria-pressed="false" autocomplete="off" (click)="likeModifyCom(com,produit)">
                             {{com.likes}}
                             <i class="fa fa-thumbs-up"></i>
