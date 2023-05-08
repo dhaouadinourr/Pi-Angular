@@ -23,6 +23,9 @@ export class MissionsPageComponent implements OnInit {
   user!:User
   comptList:any[]=[]
 
+  userToken!:any
+  userC!:boolean
+
   openParticpateModal:boolean = false;
 
   nbPlacesUsed:any
@@ -46,6 +49,10 @@ export class MissionsPageComponent implements OnInit {
       console.log(res.body.competences)
       console.log(this.missionList)
     })
+    this.userToken = localStorage.getItem('adminToken')
+      if( this.userToken){this.userC=true}
+      else{this.userC=false}
+      console.log(this.userToken)
   }
 
   getCompetenceForMission(id:any){
