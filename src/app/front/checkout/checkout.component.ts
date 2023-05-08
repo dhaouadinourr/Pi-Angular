@@ -35,6 +35,11 @@ export class CheckoutComponent implements OnInit {
    // console.log("the Amount is "+this.checkoutFormGroup.get('customer')?.value.Amount);
   
   }
+  addPayment(){
+    this.paiement.createPaymentIntent(this.donation).subscribe(() => {
+      
+    });
+  }
 
 
 }
