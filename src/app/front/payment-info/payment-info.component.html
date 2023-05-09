@@ -7,19 +7,42 @@
   <div formGroupName="paymentt" class="donation-container">
               
               <div class="donation-box">
-                  <div class="title">Payment Information</div>
+                <div class="title">Payment Information</div>
                   
                   <div class="fields">
-                    <label>Currency</label>
+                    <div *ngIf="currency?.invalid && (currency?.dirty || currency?.touched)" class="alert alert-danger mt-1">
+                      <div *ngIf="currency?.errors">
+                          Currency is incorrect
+                      </div>  
+                  </div>
+                   
                       <input type="text"   [(ngModel)]="paymentInfo.currency" formControlName="currency" id="currency" placeholder="currency"/>
-                      <label>Email</label>
+                      
+
                       <input type="text"  [(ngModel)]="paymentInfo.receiptEmail" formControlName="receiptEmail" id="receiptEmail" placeholder="Receipt Email"/>
+
+                      <div *ngIf="receiptEmail?.invalid && (receiptEmail?.dirty || receiptEmail?.touched)" class="alert alert-danger mt-1">
+                        <div *ngIf="receiptEmail?.errors">
+                            Receipt Email is incorrect
+                        </div>  
+                    </div>
+                     
                   </div>
                   
                   <div class="amount">
-                    <label>Amount</label>
-                      <div class="button">$<input [(ngModel)]="paymentInfo.amount" formControlName="amount" type="text" class="set-amount" placeholder="Amount"/></div>
+
+                      <div class="button">$<input [(ngModel)]="paymentInfo.amount" formControlName="amount" type="text" class="set-amount" placeholder="Amount"/>
+                         
+                        <div *ngIf="amount?.invalid && (amount?.dirty || amount?.touched)" class="alert alert-danger mt-1">
+                          <div *ngIf="amount?.errors">
+                              Amount is incorrect
+                          </div>  
+                      </div>
+
+                      </div>
+                      
                   </div>
+                 
                   
                   <div class="switch">
                       <input type="radio" class="switch-input" name="view" value="One-Time" id="one-time" checked="">
@@ -40,9 +63,9 @@
                       <label for="list">Add Me To Email List</label>
                   </div>
                   
-                  <div class="confirm">
+                  
                       
-                  </div> 
+                </div> 
 <!--                   <div formGroupName="creditCard" class="form-area">
                     <h3>Credit or Debit card</h3>
                     <div id="card-element">
@@ -53,6 +76,7 @@
 
                     </div>
                   </div> -->
+                  <div class="confirm">
                   <div><button class="donate-button" type="submit" routerLink="/thanks" (click)="addPayment()"><i class="fa fa-credit-card"></i> Donate Now</button></div>
                </div>
               
