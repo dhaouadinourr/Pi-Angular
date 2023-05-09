@@ -75,7 +75,7 @@
 
                     </thead>
                     
-                    <tbody *ngFor="let list of listPaiement ">
+                    <tbody *ngFor="let list of listPaiement | paginate : { itemsPerPage: 6,currentPage: x}">
                       <tr >
                         <td>
                           {{list.id}}
@@ -105,6 +105,10 @@
                       </tr>
                     </tbody>
                   </table>
+                  <pagination-controls previousLabel="Prev"
+                  nextLabel="Next"
+                  [responsive]="true"
+                  (pageChange)="x = $event"></pagination-controls>
                 </div>
               </div>
             </div>

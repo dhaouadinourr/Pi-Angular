@@ -34,8 +34,9 @@
                   <h5 class="card-title">Add Donation</h5>
                 </div>
                 <div class="card-body">
-                    <form [formGroup]="checkoutFormGroup" #h="ngForm" (ngSubmit)="h.form.valid && addDonation()">
-                    <div class="row" formGroupName="customer">
+                  <!-- #h="ngForm" (ngSubmit)="h.form.valid && -->
+                  <form [formGroup]="checkoutFormGroup" (ngSubmit)="addDonation()">
+                    <div formGroupName="customerr" class="row" >
                       <div class="col-md-12 pr-1">
                         <div class="form-group">
                           <label>First name</label>
@@ -44,7 +45,7 @@
                                 First name is incorrect
                             </div>  
                         </div>
-                          <input type="text" class="form-control" placeholder="First name" name="name"
+                          <input required formControlName="firstName" type="text" class="form-control" placeholder="First name" name="name"
                           [(ngModel)]="donation.firstName"
                           id="name">
                         
@@ -54,15 +55,15 @@
                                 Last name is incorrect
                             </div>
                         </div>
-                          <input type="text" class="form-control" placeholder="Last name" name="name"
+                          <input required formControlName="lastName" type="text" class="form-control" placeholder="Last name" name="name"
                           [(ngModel)]="donation.lastName"
                           id="name">
                           <label>Amount</label>
-                          <input type="number" class="form-control" placeholder="Amount" name="name"
+                          <input required type="number" formControlName="montant"  class="form-control" placeholder="Amount" name="name"
                           [(ngModel)]="donation.montant"
                           id="name" required>
                           <label>Email</label>
-                          <input type="email" class="form-control" placeholder="Email" name="name"
+                          <input required formControlName="Email" type="email" class="form-control" placeholder="Email" name="name"
                           [(ngModel)]="donation.email"
                           id="name" required>
                         </div>

@@ -20,7 +20,7 @@ export class AddDonationComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
-      customer:this.formBuilder.group({
+      customerr:this.formBuilder.group({
         datePaiemenet:['', [Validators.required]],
         montant:new FormControl('',[Validators.required, Validators.max(999999), Validators.pattern('-?[0-9]+(\.[0-9][0-9]?)?')]),
         firstName:new FormControl('',[Validators.required, Validators.minLength(2)]),
@@ -40,7 +40,7 @@ export class AddDonationComponent implements OnInit {
     if (this.checkoutFormGroup.invalid){
       this.checkoutFormGroup.markAllAsTouched();
     }
-    console.log(this.checkoutFormGroup.get('customer')?.value);
+    console.log(this.checkoutFormGroup.get('customerr')?.value);
    // console.log("the Amount is "+this.checkoutFormGroup.get('customer')?.value.Amount);
   
   }

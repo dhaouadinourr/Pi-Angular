@@ -47,4 +47,5 @@ export class PaymentInfoComponent implements OnInit {
   get receiptEmail(){ return this.checkoutFormGroup.get('paymentt.receiptEmail'); }
 
 
+
 }

@@ -13,6 +13,7 @@ import { DonationFormService } from 'src/app/services/donation-form.service';
 export class PaiementListComponent implements OnInit {
   listPaiement !:Paiement[];
   selectedPaiement =null;
+  x:number =1 ; 
   constructor(private paiementService:DonationFormService) { }
 
   ngOnInit(): void {
