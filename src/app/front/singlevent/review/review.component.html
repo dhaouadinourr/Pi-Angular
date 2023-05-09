@@ -26,12 +26,13 @@
                           <span class="font-weight-bold name">{{u.firstName}}</span>
                           <span class="date text-black-50"></span>
                         </div>
+                        
                       </div>
                       <div class="comment-body">
                         <div class="form-outline">
                         <div *ngIf="(edit==true && i==j); else noedit">
                           <textarea class="form-control" id="textAreaExample" rows="4" [(ngModel)]='com.comment' required></textarea>
-                          <label class="form-label" for="textAreaExample">What is your view?</label>
+                          
                         </div>
                         </div>
                         <ng-template #noedit>
@@ -39,33 +40,38 @@
                         </ng-template>
                       </div>
                       <div class="comment-footer">
+                      
+               
                         <div class="like">
-                            
-                          <button type="button" class="btn btn-success" 
+                          <i class="bi bi-heart"></i>
+                          <button type="button" class="btn btn-outline-danger"
                                   aria-pressed="false" autocomplete="off" (click)="likeModifyCom(com,produit)">
                             {{com.likes}}
-                            <i class="fa fa-thumbs-up"></i>
+                            <i class="fa fa-heart col-red"></i>
                           </button>
                         </div>
+                        
                         <div *ngIf="edit==false && com.idClient==1" class="edit">
-                          <button class="btn btn-light btn-sm" (click)="eventEdit(i)">Edit</button>
+                          <button class="btn btn-outline-success" (click)="eventEdit(i)">Edit</button>
                         </div>
                         <div *ngIf="edit==false && com.idClient==1" class="delete">
-                          <button class="btn btn-light btn-sm" (click)="deleteCom(com)">Delete</button>
+                          <button class="btn btn-outline-danger" (click)="deleteCom(com)">Delete</button>
                         </div>
                         <div *ngIf="edit==true && i==j" class="save">
-                          <button type="button" class="btn btn-light btn-sm" (click)="modifyCom(com,produit)">Save</button>
+                          <button type="button" class="btn btn-outline-secondary" (click)="modifyCom(com,produit)">Save</button>
                         </div>
                       </div>
                     </div>
                     <div class="add-comment">
                       <div class="comment-header">
                         <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
-                        <textarea class="form-control ml-1 shadow-none textarea" [(ngModel)]='str'></textarea>
+                        <textarea class="form-control ml-1 shadow-none textarea" [(ngModel)]='str'> </textarea>
+                        
                       </div>
                       <div class="comment-footer">
-                        <button class="btn btn-primary btn-sm shadow-none" type="button" (click)="addCom(produit)"
+                        <button  class="btn btn-primary btn-sm" type="button" (click)="addCom(produit)"
                                 [disabled]="edit==true">Post comment</button>
+                                <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
                       </div>
                     </div>
                   </div>
