@@ -26,7 +26,8 @@ const httpOptions = {
 
 export class EventService {
   baseUrl = 'http://localhost:9090/event';
-  url = `${environment.apiBaseUrl}`
+  url = 'http://localhost:9090'
+  
   event: Event = new Event();
   categ: EventComment = new EventComment();
 

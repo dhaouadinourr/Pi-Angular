@@ -2449,7 +2449,7 @@ License - nucleoapp.com/license/
   display: inline-block;
   font: normal normal normal 14px/1 'nucleo-icons';
   font-size: inherit;
-  speak: none;
+
   text-transform: none;
   /* Better Font Rendering */
   -webkit-font-smoothing: antialiased;
@@ -3387,7 +3387,7 @@ License - nucleoapp.com/license/
     background-color: #f2f2f2; }
   .footer nav {
     display: inline-block;
-    float: left;
+  
     padding-left: 0; }
   .footer ul {
     margin-bottom: 0;
@@ -3519,7 +3519,7 @@ License - nucleoapp.com/license/
     text-align: center;
     text-transform: uppercase; }
   .fixed-plugin .adjustments-line p {
-    float: left;
+   
     display: inline-block;
     margin-bottom: 0;
     font-size: 1em;

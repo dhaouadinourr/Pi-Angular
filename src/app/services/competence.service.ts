@@ -9,7 +9,7 @@ import { Competence } from '../Models/competence';
 })
 export class CompetenceService {
 
-  url = `${environment.apiBaseUrl}`
+  url = 'http://localhost:9090'
 
   constructor(
     private http:HttpClient

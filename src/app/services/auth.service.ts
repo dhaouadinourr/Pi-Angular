@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService{
-  url = `${environment.apiBaseUrl}`;
+  url = 'http://localhost:9090'
   private isAuthenticated = false;
 
   constructor(private http: HttpClient,private router : Router) { }

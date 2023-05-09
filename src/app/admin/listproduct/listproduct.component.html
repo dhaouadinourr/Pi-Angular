@@ -102,24 +102,12 @@
                       </button>
                     </td>
                     <td>
-                      <button
-                        type="button"
-                        (click)="onDelete(list)"
-                        class="btn btn-outline-danger"
-                      >
-                        Delete
-                      </button>
+                      <button type="button" (click)="onDelete(list)" class="btn btn-outline-danger">Delete</button>
                     </td>
                   </tr>
                 </tbody>
               </table>
-              <pagination-controls
-                previousLabel="Prev"
-                nextLabel="Next"
-                [responsive]="true"
-                (pageChange)="p = $event"
-              >
-              </pagination-controls>
+              
             </div>
           </div>
         </div>

@@ -1,2 +1,10 @@
-
+.git
+.editorconfig
+/.vscode/*
 /node_modules
+node_modules/*
+docker-data/*
+/e2e
+/docs
+.gitignore
+*.zips

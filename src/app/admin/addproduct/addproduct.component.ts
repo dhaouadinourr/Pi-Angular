@@ -63,9 +63,11 @@ export class AddproductComponent implements OnInit {
 
 
     // formData.append('file', this.userFile);
-    formData.append('file', this.file);
-    this.productService.addTask(formData).subscribe((data) => {
+    formData.append('file', this.file);    
+    console.log(formData)
+    this.productService.addTask(formData).subscribe((data:any) => {
       this.router.navigate(['/listProduct']);
+      console.log(formData)
     });
   }
 
