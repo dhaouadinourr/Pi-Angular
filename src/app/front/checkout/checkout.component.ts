@@ -24,7 +24,7 @@ export class CheckoutComponent implements OnInit {
           montant:new FormControl('',[Validators.required, Validators.max(999999), Validators.pattern('-?[0-9]+(\.[0-9][0-9]?)?')]),
           firstName:new FormControl('',[Validators.required, Validators.minLength(2)]),
           lastName:new FormControl('',[Validators.required, Validators.minLength(2)]),
-          Email:new FormControl('',[Validators.required, Validators.pattern('^[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+          Email:new FormControl('',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z@0-9.-]+\\.[a-z]{2,4}$')]),
 
         })
     });

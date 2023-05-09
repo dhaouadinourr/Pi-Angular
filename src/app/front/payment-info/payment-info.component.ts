@@ -22,8 +22,8 @@ export class PaymentInfoComponent implements OnInit {
     this.checkoutFormGroup = this.formBuilder.group({
         paymentt:this.formBuilder.group({
           amount:new FormControl('',[Validators.required, Validators.max(999999), Validators.pattern('-?[0-9]+(\.[0-9][0-9]?)?')]),
-          currency:new FormControl('',[Validators.required, Validators.minLength(2)]),
-          receiptEmail:new FormControl('',[Validators.required, Validators.pattern('^[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+          currency:new FormControl('',[Validators.required, Validators.maxLength(3),Validators.minLength(2)]),
+          receiptEmail:new FormControl('',[Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z@0-9.-]+\\.[a-z]{2,4}$')]),
 
         })
     });
@@ -42,9 +42,9 @@ export class PaymentInfoComponent implements OnInit {
       this.router.navigate(['/thanks']);
     });
   }
-  get amount(){ return this.checkoutFormGroup.get('customer.amount'); }
-  get  currency(){ return this.checkoutFormGroup.get('customer.currency'); }
-  get receiptEmail(){ return this.checkoutFormGroup.get('customer.receiptEmail'); }
+  get amount(){ return this.checkoutFormGroup.get('paymentt.amount'); }
+  get  currency(){ return this.checkoutFormGroup.get('paymentt.currency'); }
+  get receiptEmail(){ return this.checkoutFormGroup.get('paymentt.receiptEmail'); }
 
 
 }

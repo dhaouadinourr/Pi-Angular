@@ -34,15 +34,26 @@
                   <h5 class="card-title">Add Donation</h5>
                 </div>
                 <div class="card-body">
-                    <form #h="ngForm" (ngSubmit)="h.form.valid && addDonation()">
-                    <div class="row">
+                    <form [formGroup]="checkoutFormGroup" #h="ngForm" (ngSubmit)="h.form.valid && addDonation()">
+                    <div class="row" formGroupName="customer">
                       <div class="col-md-12 pr-1">
                         <div class="form-group">
                           <label>First name</label>
+                          <div *ngIf="firstName?.invalid && (firstName?.dirty || firstName?.touched)" class="alert alert-danger mt-1">
+                            <div *ngIf="firstName?.errors">
+                                First name is incorrect
+                            </div>  
+                        </div>
                           <input type="text" class="form-control" placeholder="First name" name="name"
                           [(ngModel)]="donation.firstName"
                           id="name">
+                        
                           <label>Last name</label>
+                          <div *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)" class="alert alert-danger mt-1">
+                            <div *ngIf="lastName?.errors">
+                                Last name is incorrect
+                            </div>
+                        </div>
                           <input type="text" class="form-control" placeholder="Last name" name="name"
                           [(ngModel)]="donation.lastName"
                           id="name">

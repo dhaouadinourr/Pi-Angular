@@ -4,44 +4,37 @@
   </head>
   <body>
      <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
-  <div formGroupName="paymentt" class="donation-container">
-              
-              <div class="donation-box">
-                <div class="title">Payment Information</div>
-                  
-                  <div class="fields">
-                    <div *ngIf="currency?.invalid && (currency?.dirty || currency?.touched)" class="alert alert-danger mt-1">
-                      <div *ngIf="currency?.errors">
-                          Currency is incorrect
-                      </div>  
+        <div formGroupName="paymentt" class="donation-container">   
+          <div class="donation-box">
+            <div class="title">Payment Information</div>     
+              <div class="fields">    
+                <input type="text"   [(ngModel)]="paymentInfo.currency" formControlName="currency" id="currency" placeholder="currency"/>
+                  <div *ngIf="currency?.invalid && (currency?.dirty || currency?.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="currency?.errors">
+                            Currency is incorrect
+                    </div>  
                   </div>
-                   
-                      <input type="text"   [(ngModel)]="paymentInfo.currency" formControlName="currency" id="currency" placeholder="currency"/>
-                      
 
-                      <input type="text"  [(ngModel)]="paymentInfo.receiptEmail" formControlName="receiptEmail" id="receiptEmail" placeholder="Receipt Email"/>
-
-                      <div *ngIf="receiptEmail?.invalid && (receiptEmail?.dirty || receiptEmail?.touched)" class="alert alert-danger mt-1">
-                        <div *ngIf="receiptEmail?.errors">
+                <input type="text"  [(ngModel)]="paymentInfo.receiptEmail" formControlName="receiptEmail" id="receiptEmail" placeholder="Receipt Email"/>
+                  <div *ngIf="receiptEmail?.invalid && (receiptEmail?.dirty || receiptEmail?.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="receiptEmail?.errors">
                             Receipt Email is incorrect
-                        </div>  
-                    </div>
+                    </div>  
+                  </div>
                      
-                  </div>
+                </div>
                   
-                  <div class="amount">
+            <div class="amount">
 
-                      <div class="button">$<input [(ngModel)]="paymentInfo.amount" formControlName="amount" type="text" class="set-amount" placeholder="Amount"/>
-                         
-                        <div *ngIf="amount?.invalid && (amount?.dirty || amount?.touched)" class="alert alert-danger mt-1">
-                          <div *ngIf="amount?.errors">
-                              Amount is incorrect
-                          </div>  
-                      </div>
-
-                      </div>
+                <div class="button">$<input [(ngModel)]="paymentInfo.amount" formControlName="amount" type="text" class="set-amount" placeholder="Amount"/> </div>
+              <div *ngIf="amount?.invalid && (amount?.dirty || amount?.touched)" class="alert alert-danger mt-1">
+                <div *ngIf="amount?.errors">
+                  Amount is incorrect
+                </div>  
+              </div>
+            
                       
-                  </div>
+            </div>
                  
                   
                   <div class="switch">
@@ -62,28 +55,18 @@
                       <input type="checkbox" id="list" class="checkbox" />
                       <label for="list">Add Me To Email List</label>
                   </div>
-                  
-                  
-                      
-                </div> 
-<!--                   <div formGroupName="creditCard" class="form-area">
-                    <h3>Credit or Debit card</h3>
-                    <div id="card-element">
-
-
-                    </div>
-                    <div id="card-errors" class="displayError.textContent!=='': 'alert alert-danger mt-1' ">
-
-                    </div>
-                  </div> -->
                   <div class="confirm">
-                  <div><button class="donate-button" type="submit" routerLink="/thanks" (click)="addPayment()"><i class="fa fa-credit-card"></i> Donate Now</button></div>
-               </div>
-              
+                    </div>
+                    <div><button class="donate-button" type="submit" routerLink="/thanks" (click)="addPayment()"><i class="fa fa-credit-card"></i> Donate Now</button></div>
+                 </div>
+
+
+
+                
           </div> 
-  
+        
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://raw.githubusercontent.com/jerryluk/jquery.autogrow/master/jquery.autogrow-min.js"></script>
   <script src="app/src/front/Checkout.js"></script>
- </form> 
+     </form> 
   </body>
