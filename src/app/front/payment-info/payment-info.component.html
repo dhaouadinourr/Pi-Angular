@@ -11,14 +11,14 @@
                   
                   <div class="fields">
                     <label>Currency</label>
-                      <input type="text"  formControlName="currency" id="currency" placeholder="currency"/>
+                      <input type="text"   [(ngModel)]="paymentInfo.currency" formControlName="currency" id="currency" placeholder="currency"/>
                       <label>Email</label>
-                      <input type="text" formControlName="receiptEmail" id="receiptEmail" placeholder="Receipt Email"/>
+                      <input type="text"  [(ngModel)]="paymentInfo.receiptEmail" formControlName="receiptEmail" id="receiptEmail" placeholder="Receipt Email"/>
                   </div>
                   
                   <div class="amount">
                     <label>Amount</label>
-                      <div class="button">$<input formControlName="amount" type="text" class="set-amount" placeholder="Amount"/></div>
+                      <div class="button">$<input [(ngModel)]="paymentInfo.amount" formControlName="amount" type="text" class="set-amount" placeholder="Amount"/></div>
                   </div>
                   
                   <div class="switch">

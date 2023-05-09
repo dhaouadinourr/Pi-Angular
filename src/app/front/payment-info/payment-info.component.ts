@@ -31,7 +31,8 @@ export class PaymentInfoComponent implements OnInit {
           amount:['', [Validators.required]],
           currency:['', [Validators.required]],
           receiptEmail:['', [Validators.required]],
-          cardToken:['tok_visa'],
+          
+          
 
         })
     });

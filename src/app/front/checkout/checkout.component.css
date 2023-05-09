@@ -120,7 +120,7 @@
 	background-color: #393939;
 }
 
-.donation-box .amount .button.selected {
+.donation-box .amount .button.checkbox:active {
 	background-color: #393939;
 }
 
@@ -263,7 +263,7 @@
 	position: absolute;
 	top: 0px;
 	left: 3px;
-	color: white;
+	color: rgb(165, 165, 165);
 }
 
 .confirm {

@@ -10,16 +10,16 @@
                   <div class="title">Donation Information</div>
                   
                   <div class="fields">
-                      <input type="text" formControlName="firstName" id="firstName" placeholder="First Name"/>
-                      <input type="text" formControlName="lastName" id="lastName" placeholder="Last Name"/>
-                      <input type="text" formControlName="Email" id="email" placeholder="Email"/>
+                      <input type="text" [(ngModel)]="donation.firstName" formControlName="firstName" id="firstName" placeholder="First Name"/>
+                      <input type="text" [(ngModel)]="donation.lastName" formControlName="lastName" id="lastName" placeholder="Last Name"/>
+                      <input type="text" [(ngModel)]="donation.email" formControlName="Email" id="email" placeholder="Email"/>
                   </div>
                   
                   <div class="amount">
                       <div class="button">$30</div>
                       <div class="button">$50</div>
                       <div class="button">$100</div>
-                      <div class="button">$<input formControlName="montant" type="text" class="set-amount" placeholder="Amount"/></div>
+                      <div class="button">$<input [(ngModel)]="donation.montant" formControlName="montant" type="text" class="set-amount" placeholder="Amount"/></div>
                   </div>
                   
                   <div class="switch">
@@ -45,7 +45,7 @@
                       
                   </div>
                   
-                  <div><button class="donate-button" type="submit" routerLink="/paymentInfo"><i class="fa fa-credit-card"></i> Proceed to payment</button></div>
+                  <div><button class="donate-button" type="submit" routerLink="/paymentInfo" (click)="addPayment()"><i class="fa fa-credit-card"></i> Proceed to payment</button></div>
               </div>
               
           </div>
